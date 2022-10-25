@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="SemiColonWeb" />
+
+    <!-- Stylesheets
+	============================================= -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Poppins:300,400,500,600,700|PT+Serif:400,400i&display=swap"
+        rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="css/dark.css" type="text/css" />
+
+    <!-- Travel Demo Specific Stylesheet -->
+    <link rel="stylesheet" href="demos/travel/travel.css" type="text/css" />
+    <link rel="stylesheet" href="css/components/datepicker.css" type="text/css" />
+    <!-- / -->
+
+    <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+
+    <link rel="stylesheet" href="css/custom.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/colors.php?color=AC4147" type="text/css" />
+    <style>
+        .bwhite {
+            -webkit-filter: grayscale(100%);
+            /* Safari 6.0 - 9.0 */
+            filter: grayscale(100%);
+        }
+    </style>
+
+    <!-- Document Title
+	============================================= -->
+    <title>surgy</title>
+
+</head>
+
+<body class="stretched">
+
+    <!-- Document Wrapper
+	============================================= -->
+    <div id="wrapper" class="clearfix">
+
+        <!-- Top Bar
+		============================================= -->
+
+
+        <!-- Header
+		============================================= -->
+        <header id="header" class="transparent-header dark" data-sticky-class="not-dark"
+            data-responsive-class="not-dark" data-menu-padding="28"
+            style="background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(75px);">
+            <div id="header-wrap">
+                <div class="container">
+                    <div class="header-row">
+
+                        <!-- Logo
+						============================================= -->
+                        <div id="logo">
+                            <a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png">
+                                <p style="letter-spacing: 0.5rem; margin-top: 2rem;">surgy</p>
+                            </a>
+                            <a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png">
+                                <p style="letter-spacing: 0.5rem;">surgy</p>
+                            </a>
+                        </div><!-- #logo end -->
+
+                        <div id="primary-menu-trigger">
+                            <svg class="svg-trigger" viewBox="0 0 100 100">
+                                <path
+                                    d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20">
+                                </path>
+                                <path d="m 30,50 h 40"></path>
+                                <path
+                                    d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20">
+                                </path>
+                            </svg>
+                        </div>
+
+                        <!-- Primary Navigation
+						============================================= -->
+                        <nav class="primary-menu style-4 menu-spacing-margin">
+
+                            <ul class="menu-container">
+                                <li class="menu-item current"><a class="menu-link" href="index.html">
+                                        <div><i class="icon-home2"></i>Home</div>
+                                    </a></li>
+                                <li class="menu-item"><a class="menu-link" href="corporate.html">
+                                        <div><i class="icon-building"></i>Corporate</div>
+                                    </a></li>
+                                <li class="menu-item"><a class="menu-link" href="control.html">
+                                        <div><i class="icon-laptop"></i>Clinic Panel</div>
+                                    </a></li>
+                            </ul>
+
+                        </nav><!-- #primary-menu end -->
+
+                    </div>
+                </div>
+            </div>
+            <div class="header-wrap-clone"></div>
+        </header><!-- #header end -->
+
+        <section id="slider"
+            class="slider-element slider-parallax swiper_wrapper min-vh-60 min-vh-md-100 include-header include-topbar">
+            <div class="slider-inner">
+                <div class="fslider h-100 position-absolute" data-speed="3000" data-pause="7500" data-animation="fade"
+                    data-arrows="false" data-pagi="false" style="background-color: #333;">
+                    <div class="flexslider">
+                        <div class="slider-wrap">
+                            <div class="slide"
+                                style="background: url('demos/travel/images/slider/abs1.jpg') center center; background-size: cover;">
+                            </div>
+                            <div class="slide"
+                                style="background: url('demos/travel/images/slider/2.jpg') center center; background-size: cover;">
+                            </div>
+                            <div class="slide"
+                                style="background: url('demos/travel/images/slider/3.jpg') center center; background-size: cover;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="travel-slider-overlay">
+
+                    <div class="vertical-middle">
+                        <div class="container py-5 pt-5 pb-lg-0"
+                            style="background-color: rgba(255, 255, 255, 0.5); backdrop-filter: blur(75px);">
+                            <h1 data-animate="fadeInUp">Welcome to Surgy.</h1>
+                            <p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">Health Tourism just
+                                got a lot easier for doctors, and much more enjoyable for patients.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Content
+		============================================= -->
+        <section id="content">
+
+            <div id="portfolio" class="portfolio row grid-container portfolio-overlay-open g-0">
+                <a href="#" class="button button-full button-dark center">
+                    <div class="container clearfix">
+                        <strong>Choose Your Need</strong>
+                    </div>
+                </a>
+                <article class="portfolio-item col-12 col-sm-6 col-md-4 col-lg-6 pf-graphics pf-uielements">
+                    <div class="grid-inner">
+                        <div class="portfolio-image">
+                            <a href="javascript:void(0);" class="areaSelector" data-area="dental">
+                                <img src="demos/travel/images/packages/dental.jpg" alt="Dental Treatment">
+                                <div class="bg-overlay">
+                                    <div class="bg-overlay-content dark flex-column">
+                                        <div class="portfolio-desc py-0 text-center">
+                                            <h3>Dental Treatment</h3>
+                                        </div>
+                                    </div>
+                                    <div class="bg-overlay-bg dark op-ts op-05" data-hover-animate="op-1"
+                                        data-hover-animate-out="op-05"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="portfolio-item col-12 col-sm-6 col-md-4 col-lg-6 pf-icons pf-illustrations">
+                    <div class="grid-inner">
+                        <div class="portfolio-image">
+                            <a href="javascript:void(0);" class="areaSelector" data-area="hair">
+                                <img src="demos/travel/images/packages/hair.jpg" alt="Hair Transplant">
+                                <div class="bg-overlay">
+                                    <div class="bg-overlay-content dark flex-column">
+                                        <div class="portfolio-desc py-0 text-center">
+                                            <h3>Hair Transplant</h3>
+                                        </div>
+                                    </div>
+                                    <div class="bg-overlay-bg dark op-ts op-05" data-hover-animate="op-1"
+                                        data-hover-animate-out="op-05"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="portfolio-item col-12 col-sm-6 col-md-4 col-lg-6 pf-uielements pf-media">
+                    <div class="grid-inner">
+                        <div class="portfolio-image">
+                            <a href="javascript:void(0);" class="areaSelector" data-area="plastic">
+                                <img src="demos/travel/images/packages/plastic.jpg" alt="Plastic Surgery">
+                                <div class="bg-overlay">
+                                    <div class="bg-overlay-content dark flex-column">
+                                        <div class="portfolio-desc py-0 text-center">
+                                            <h3>Plastic Surgery</h3>
+                                        </div>
+                                    </div>
+                                    <div class="bg-overlay-bg dark op-ts op-05" data-hover-animate="op-1"
+                                        data-hover-animate-out="op-05"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="portfolio-item col-12 col-sm-6 col-md-4 col-lg-6 pf-graphics pf-illustrations">
+                    <div class="grid-inner">
+                        <div class="portfolio-image">
+                            <a href="javascript:void(0);" class="areaSelector" data-area="bariatric">
+                                <img src="demos/travel/images/packages/bariatric.jpg" class="bwhite"
+                                    alt="Hill Trekking">
+                                <div class="bg-overlay">
+                                    <div class="bg-overlay-content dark flex-column">
+                                        <div class="portfolio-desc py-0 text-center">
+                                            <h3>Bariatric Treatment</h3>
+                                            <hr>
+                                            <p>coming soon</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-overlay-bg dark op-ts op-05" data-hover-animate="op-1"
+                                        data-hover-animate-out="op-05"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section><!-- #content end -->
+        <section id="cities">
+
+            <div id="portfolio" class="portfolio row grid-container portfolio-overlay-open g-0">
+                <div href="#" class="button button-full button-dark center">
+                    <div class="row">
+                        <div class="container clearfix col-4">
+                        </div>
+                        <div class="container clearfix col-4">
+                            <strong>Choose the city that suits you the most.</strong>
+                        </div>
+                        <div class="col-4">
+                            <div style="text-align: right; margin-right: 1vw;"><a href="javascript:void(0);"
+                                    class="goBack"><i class="icon-caret-left" style="top:4px;"></i>Or go back</a></div>
+                        </div>
+                    </div>
+                </div>
+                <article class="portfolio-item col-12 col-sm-6 col-md-4 col-lg-4 pf-graphics pf-uielements">
+                    <div class="grid-inner">
+                        <div class="portfolio-image">
+                            <a href="javascript:void(0);" class="citySelector" data-city="ist">
+                                <img src="demos/travel/images/packages/ist.jpg" alt="Dental Treatment">
+                                <div class="bg-overlay">
+                                    <div class="bg-overlay-content dark flex-column">
+                                        <div class="portfolio-desc py-0 text-center">
+                                            <h3>Istanbul</h3>
+                                        </div>
+                                    </div>
+                                    <div class="bg-overlay-bg dark op-ts op-05" data-hover-animate="op-1"
+                                        data-hover-animate-out="op-05"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="portfolio-item col-12 col-sm-6 col-md-4 col-lg-4 pf-icons pf-illustrations">
+                    <div class="grid-inner">
+                        <div class="portfolio-image">
+                            <a href="javascript:void(0);" class="citySelector" data-city="izm">
+                                <img src="demos/travel/images/packages/izm.jpg" alt="Hair Transplant">
+                                <div class="bg-overlay">
+                                    <div class="bg-overlay-content dark flex-column">
+                                        <div class="portfolio-desc py-0 text-center">
+                                            <h3>Izmir</h3>
+                                        </div>
+                                    </div>
+                                    <div class="bg-overlay-bg dark op-ts op-05" data-hover-animate="op-1"
+                                        data-hover-animate-out="op-05"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="portfolio-item col-12 col-sm-6 col-md-4 col-lg-4 pf-uielements pf-media">
+                    <div class="grid-inner">
+                        <div class="portfolio-image">
+                            <a href="javascript:void(0);" class="citySelector" data-city="ank">
+                                <img src="demos/travel/images/packages/ank.jpg" alt="Plastic Surgery">
+                                <div class="bg-overlay">
+                                    <div class="bg-overlay-content dark flex-column">
+                                        <div class="portfolio-desc py-0 text-center">
+                                            <h3>Ankara</h3>
+                                        </div>
+                                    </div>
+                                    <div class="bg-overlay-bg dark op-ts op-05" data-hover-animate="op-1"
+                                        data-hover-animate-out="op-05"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section><!-- #content end -->
+        <div class="modal fade confirmation-modal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Modal Heading</h4>
+                        <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal"
+                            aria-hidden="true"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <h4> <strong>Confirmation</strong> </h1>
+                            <hr>
+                            Are you sure you want to proceed with your current selections?
+                            <br>
+                            <hr>
+                            Selected Area of Treatment: <strong>
+                                <p id="modal-area"></p>
+                            </strong>
+                            Your City of Choice: <strong>
+                                <p id="modal-city"></p>
+                            </strong>
+                            <hr>
+                            <div class="row">
+                                <div class="col-6">
+                                    <a href="javascript:void(0);"
+                                        class="button button-border button-mini button-rounded button-black goBack">Go
+                                        Back</a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="browse.html"
+                                        class="button button-3d button-mini button-rounded button-green">Proceed</a>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer
+		============================================= -->
+        <footer id="footer" class="dark" style="background-color: #222;">
+            <div class="container">
+
+                <!-- Footer Widgets
+				============================================= -->
+                <div class="footer-widgets-wrap" hidden>
+
+                    <div class="row col-mb-50">
+
+                        <div class="col-md-6">
+
+                            <div class="widget clearfix">
+                                <h4>Featured Packages</h4>
+
+                                <div class="posts-sm row col-mb-30" id="travel-package-list-footer">
+                                    <div class="entry col-12">
+                                        <div class="grid-inner row align-items-center g-0">
+                                            <div class="col-auto">
+                                                <div class="entry-image">
+                                                    <a href="#"><img class="rounded-circle"
+                                                            src="images/magazine/small/1.jpg" alt="Image"></a>
+                                                </div>
+                                            </div>
+                                            <div class="col ps-3">
+                                                <div class="entry-title">
+                                                    <h4><a href="#">package1</a></h4>
+                                                </div>
+                                                <div class="entry-meta">
+                                                    <ul>
+                                                        <li><strong>$599</strong> onwards</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="entry col-12">
+                                        <div class="grid-inner row align-items-center g-0">
+                                            <div class="col-auto">
+                                                <div class="entry-image">
+                                                    <a href="#"><img class="rounded-circle"
+                                                            src="images/magazine/small/2.jpg" alt="Image"></a>
+                                                </div>
+                                            </div>
+                                            <div class="col ps-3">
+                                                <div class="entry-title">
+                                                    <h4><a href="#">package2</a></h4>
+                                                </div>
+                                                <div class="entry-meta">
+                                                    <ul>
+                                                        <li><strong>$399</strong> onwards</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="entry col-12">
+                                        <div class="grid-inner row align-items-center g-0">
+                                            <div class="col-auto">
+                                                <div class="entry-image">
+                                                    <a href="#"><img class="rounded-circle"
+                                                            src="images/magazine/small/3.jpg" alt="Image"></a>
+                                                </div>
+                                            </div>
+                                            <div class="col ps-3">
+                                                <div class="entry-title">
+                                                    <h4><a href="#">package3</a></h4>
+                                                </div>
+                                                <div class="entry-meta">
+                                                    <ul>
+                                                        <li><strong>$1299</strong> onwards</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="widget widget_links clearfix">
+
+                                <h4>Popular Destinations</h4>
+
+                                <div class="row col-mb-30">
+                                    <div class="col-6">
+                                        <ul>
+                                            <li><a href="#">Thailand</a></li>
+                                            <li><a href="#">Indonesia</a></li>
+                                            <li><a href="#">Italy</a></li>
+                                            <li><a href="#">Spain</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul>
+                                            <li><a href="#">India</a></li>
+                                            <li><a href="#">France</a></li>
+                                            <li><a href="#">Philippines</a></li>
+                                            <li><a href="#">New Zealand</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="widget subscribe-widget clearfix">
+                                <h5><strong>Get Noticed</strong> when a new <strong>Clinic is added</strong>:</h5>
+                                <div class="widget-subscribe-form-result"></div>
+                                <form id="widget-subscribe-form" action="include/subscribe.php" method="post"
+                                    class="mb-0">
+                                    <div class="input-group mx-auto">
+                                        <div class="input-group-text"><i class="icon-email2"></i></div>
+                                        <input type="email" id="widget-subscribe-form-email"
+                                            name="widget-subscribe-form-email" class="form-control required email"
+                                            placeholder="Enter your Email">
+                                        <button class="btn btn-danger bg-color" type="submit">Subscribe</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div><!-- .footer-widgets-wrap end -->
+
+            </div>
+
+            <!-- Copyrights
+			============================================= -->
+            <div id="copyrights">
+                <div class="container">
+
+                    <div class="row col-mb-30">
+
+                        <div class="col-md-6 text-center text-md-start">
+                            Copyrights &copy; 2022 Surgy<br>
+                            <div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 text-center text-md-end" hidden>
+                            <!-- TODO _ CLARIF-1 -->
+                            <div class="d-flex justify-content-center justify-content-md-end">
+                                <a href="#" class="social-icon si-small si-borderless si-facebook">
+                                    <i class="icon-facebook"></i>
+                                    <i class="icon-facebook"></i>
+                                </a>
+
+                                <a href="#" class="social-icon si-small si-borderless si-twitter">
+                                    <i class="icon-twitter"></i>
+                                    <i class="icon-twitter"></i>
+                                </a>
+
+                                <a href="#" class="social-icon si-small si-borderless si-gplus">
+                                    <i class="icon-gplus"></i>
+                                    <i class="icon-gplus"></i>
+                                </a>
+
+                                <a href="#" class="social-icon si-small si-borderless si-pinterest">
+                                    <i class="icon-pinterest"></i>
+                                    <i class="icon-pinterest"></i>
+                                </a>
+
+                                <a href="#" class="social-icon si-small si-borderless si-vimeo">
+                                    <i class="icon-vimeo"></i>
+                                    <i class="icon-vimeo"></i>
+                                </a>
+
+                                <a href="#" class="social-icon si-small si-borderless si-github">
+                                    <i class="icon-github"></i>
+                                    <i class="icon-github"></i>
+                                </a>
+
+                                <a href="#" class="social-icon si-small si-borderless si-yahoo">
+                                    <i class="icon-yahoo"></i>
+                                    <i class="icon-yahoo"></i>
+                                </a>
+
+                                <a href="#" class="social-icon si-small si-borderless si-linkedin">
+                                    <i class="icon-linkedin"></i>
+                                    <i class="icon-linkedin"></i>
+                                </a>
+                            </div>
+
+                            <div class="clear"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div><!-- #copyrights end -->
+        </footer><!-- #footer end -->
+
+    </div><!-- #wrapper end -->
+
+    <!-- Go To Top
+	============================================= -->
+    <div id="gotoTop" class="icon-angle-up"></div>
+
+    <!-- JavaScripts
+	============================================= -->
+    <script src="js/jquery.js"></script>
+    <script src="js/plugins.min.js"></script>
+    <script src="https://maps.google.com/maps/api/js?key=YOUR-API-KEY"></script>
+
+    <!-- Travel Demo Specific Script -->
+    <script src="js/components/datepicker.js"></script>
+    <!-- / -->
+
+    <!-- Footer Scripts
+	============================================= -->
+    <script src="js/functions.js"></script>
+
+    <script>
+        $('#cities').hide()
+
+        $(function () {
+            $('.travel-date-group').datepicker({
+                autoclose: true,
+                startDate: "today"
+            });
+        });
+
+    </script>
+    <script>
+        $(".areaSelector").click(function () {
+            window["selectedArea"] = $(this).data("area")
+            $("#content").fadeOut(200, function () {
+                $('#cities').fadeIn(200)
+            })
+        })
+        $(".citySelector").click(function () {
+            window["selectedCity"] = $(this).data("city")
+            $("#modal-city").html(window.cities[window["selectedCity"]].fullName)
+            $("#modal-area").html(window.areas[window["selectedArea"]].fullName)
+            $('.confirmation-modal').modal("show")
+        })
+        $(".goBack").click(function () {
+            $('.confirmation-modal').modal("hide")
+            $("#cities").fadeOut(200, function () {
+                $('#content').fadeIn(200)
+            })
+        })
+    </script>
+    <script>
+        window.cities = {
+            ist: {
+                fullName: "Istanbul",
+                clinicTypes: {
+                    "dental": {
+                        available: true,
+                        clinics: 20
+                    },
+                    "hair": {
+                        available: true,
+                        clinics: 10
+                    },
+                    "plastic": {
+                        available: true,
+                        clinics: 5
+                    }
+                }
+            },
+            izm: {
+                fullName: "Izmir",
+                clinicTypes: {
+                    "dental": {
+                        available: true,
+                        clinics: 20
+                    },
+                    "hair": {
+                        available: true,
+                        clinics: 10
+                    },
+                    "plastic": {
+                        available: true,
+                        clinics: 5
+                    }
+                }
+            },
+            ank: {
+                fullName: "Ankara",
+                clinicTypes: {
+                    "dental": {
+                        available: true,
+                        clinics: 20
+                    },
+                    "hair": {
+                        available: true,
+                        clinics: 10
+                    },
+                    "plastic": {
+                        available: true,
+                        clinics: 5
+                    }
+                }
+            }
+        }
+        window.areas = {
+            "dental": {
+                fullName: "Dental Treatment & Surgery"
+            },
+            "hair": {
+                fullName: "Hair Transplant & Treatment"
+            },
+            "plastic": {
+                fullName: "Plastic Surgery & Treatment"
+            },
+            "bariatric": {
+                fullName: "Bariatric Treatment & Surgery"
+            }
+        }
+    </script>
+
+</body>
+
+</html>
