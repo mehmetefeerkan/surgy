@@ -2,72 +2,347 @@
 <html dir="ltr" lang="en-US">
 
 <head>
-
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="SemiColonWeb" />
-
-    <!-- Stylesheets
-	============================================= -->
+    <meta name="author" content="Harmonia" />
     <link
         href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Poppins:300,400,500,600,700|PT+Serif:400,400i&display=swap"
         rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="style.css" type="text/css" />
     <link rel="stylesheet" href="css/dark.css" type="text/css" />
+    <style>
+        @font-face {
+            font-family: "Arca Majora";
+            src: url(css/fonts/arca-heavy-webfont.eot);
+            src: url(css/fonts/arca-heavy-webfont.eot?#iefix) format("embedded-opentype"),
+                url(css/fonts/arca-heavy-webfont.woff2) format("woff2"),
+                url(css/fonts/arca-heavy-webfont.woff) format("woff"),
+                url(css/fonts/arca-heavy-webfont.ttf) format("truetype"),
+                url(css/fonts/arca-heavy-webfont.svg#arca_majoraheavy) format("svg");
+            font-weight: 400;
+            font-style: normal;
+        }
 
-    <!-- Travel Demo Specific Stylesheet -->
-    <link rel="stylesheet" href="demos/travel/travel.css" type="text/css" />
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: "Arca Majora", sans-serif;
+        }
 
+        @media (min-width: 992px) {
+            #header+.include-header.include-topbar {
+                margin-top: calc(-100px - 2px - 45px);
+            }
+
+            #top-bar {
+                z-index: 399;
+                border-bottom-color: rgba(0, 0, 0, 0.05);
+            }
+
+            #top-social li,
+            .top-links-item {
+                border-left-color: rgba(0, 0, 0, 0.05);
+            }
+
+            #top-bar.transparent-topbar {
+                background: 0 0 !important;
+            }
+        }
+
+        .dark .top-links-item>a {
+            color: #eee;
+        }
+
+        .dark .top-links-item:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .dark #top-social li {
+            border-left: 0;
+        }
+
+        .dark #top-social li a {
+            color: #eee;
+        }
+
+        .dark #header-wrap:not(.not-dark) .primary-menu.style-4>ul>li.current>a,
+        .dark #header-wrap:not(.not-dark) .primary-menu.style-4>ul>li:hover>a {
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .tabs.browse-organiser-tabs {
+            width: 60% !important;
+        }
+
+        .tabs.browse-organiser-tabs {
+            margin: 0;
+        }
+
+        .browse-organiser-tabs ul.tab-nav {
+            border-bottom: 4px solid #ac4147;
+        }
+
+        .browse-organiser-tabs ul.tab-nav li {
+            margin-left: 1px;
+            border: 0;
+            height: 48px;
+            border-left: 0 !important;
+        }
+
+        .browse-organiser-tabs ul.tab-nav li:first-child {
+            margin-left: 0;
+        }
+
+        .browse-organiser-tabs ul.tab-nav li a {
+            padding: 0 20px;
+            color: #fff;
+            height: 48px;
+            line-height: 48px;
+            background-color: rgba(0, 0, 0, 0.5);
+            font-size: 15px;
+            font-weight: 400;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .browse-organiser-tabs ul.tab-nav li.ui-tabs-active a {
+            top: 0;
+            background-color: #ac4147;
+        }
+
+        .browse-organiser-tabs ul.tab-nav li .label {
+            margin-left: 5px;
+        }
+
+        .browse-organiser-tabs ul.tab-nav li a i {
+            margin-right: 7px;
+        }
+
+        .browse-organiser-tabs .tab-container {
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        #browse-slider-overlay {
+            position: relative;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body:not(.device-touch):not(.device-sm):not(.device-xs) .portfolio-overlay-open .portfolio-item .portfolio-image img {
+            -webkit-transform: scale(1.02);
+            transform: scale(1.02);
+            -webkit-transition: all 1.5s ease;
+            transition: all 1.5s ease;
+            -webkit-transform-style: preserve-3d;
+            -webkit-backface-visibility: hidden;
+        }
+
+        body:not(.device-touch):not(.device-sm):not(.device-xs) .portfolio-overlay-open .portfolio-item:hover .portfolio-image img {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        .portfolio-desc h3 {
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 18px;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+        }
+
+        .footer-big-contacts {
+            color: #333;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .footer-big-contacts span {
+            display: block;
+            font-size: 11px;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: #888;
+            letter-spacing: 2px;
+        }
+
+        .dark .footer-big-contacts {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .device-md .tabs.browse-organiser-tabs {
+            width: 100% !important;
+        }
+
+        @media (max-width: 767px) {
+            .tabs.browse-organiser-tabs {
+                position: relative !important;
+                left: 0 !important;
+                top: 0 !important;
+                margin-top: 0 !important;
+                width: 100% !important;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .tabs.browse-organiser-tabs .heading-block h4 {
+                margin-bottom: 20px;
+            }
+
+            .tabs.browse-organiser-tabs .heading-block .fleft,
+            .tabs.browse-organiser-tabs .heading-block .fright {
+                float: none !important;
+            }
+        }
+
+        .device-xs .tabs.browse-organiser-tabs .more-link.fright {
+            float: none !important;
+        }
+
+        .device-sm .tabs.browse-organiser-tabs .tab-nav i,
+        .device-xs .tabs.browse-organiser-tabs .tab-nav i {
+            margin-right: 0 !important;
+        }
+
+        .toggle .toggle-title i {
+            top: 7px;
+            left: 6px;
+        }
+
+        .more-link i {
+            position: relative;
+            top: 2px;
+        }
+
+        .checkbox-style:checked+.checkbox-style-2-label::before {
+            background: #ac4147;
+        }
+
+        .hotel-price {
+            display: block;
+            font-size: 30px;
+            color: #ac4147;
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: 1px;
+        }
+
+        @media (min-width: 992px) {
+
+            .rtl #top-social li,
+            .rtl .top-links-item {
+                border-right-color: rgba(0, 0, 0, 0.05);
+                border-left-color: 0;
+            }
+        }
+
+        .rtl .dark #top-social li {
+            border-right: 0;
+        }
+
+        .rtl .browse-organiser-tabs ul.tab-nav li {
+            margin-left: 1px;
+            margin-right: 1px;
+            border-right: 0 !important;
+        }
+
+        .rtl .browse-organiser-tabs ul.tab-nav li:first-child {
+            margin-right: 0;
+        }
+
+        @media (max-width: 767px) {
+            .rtl .toggle .toggle-title i {
+                right: 6px;
+                left: auto;
+            }
+        }
+    </style>
     <link rel="stylesheet" href="css/components/datepicker.css" type="text/css" />
-    <!-- Radio Ckeckbox Plugin -->
     <link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css" />
-    <!-- Star Rating Plugin -->
     <link rel="stylesheet" href="css/components/bs-rating.css" type="text/css" />
-    <!-- / -->
-
     <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
     <link rel="stylesheet" href="css/animate.css" type="text/css" />
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
-
     <link rel="stylesheet" href="css/custom.css" type="text/css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="css/colors.php?color=AC4147" type="text/css" />
-    <!-- / -->
-
-    <!-- Document Title
-	============================================= -->
+    <style>
+        #logo a,
+        .before-heading,
+        .button.button-desc,
+        .button.button-desc span,
+        .comment-content .comment-author span,
+        .comment-content .comment-author span a,
+        .counter,
+        .entry blockquote p,
+        .entry-link,
+        .entry-link span,
+        .entry.entry-date-section span,
+        .fbox-center.fbox-italic p,
+        .fbox-content h3,
+        .font-body,
+        .font-primary,
+        .font-secondary,
+        .mega-menu-style-2 .mega-menu-title>.menu-link,
+        .menu-link,
+        .more-link,
+        .nav-tree li a,
+        .nav-tree ul ul a,
+        .skills li .progress-percent .counter,
+        .sub-menu-container .menu-item>.menu-link,
+        .tab-nav-lg li a,
+        .team-title span,
+        .testi-content p,
+        .top-search-form input,
+        .wedding-head,
+        .wedding-head .first-name span,
+        .wedding-head .last-name span,
+        .widget-filter-links li a,
+        .wp-caption,
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        label,
+        small {
+            font-family: Inter, sans-serif !important;
+        }
+    </style>
+    <style>
+        .clinic-image {
+            width: -webkit-fill-available;
+            height: 20rem;
+            object-fit: scale-down;
+        }
+    </style>
     <title>Surgy | Browse</title>
-
 </head>
 
 <body class="stretched">
-
-    <!-- Document Wrapper
-	============================================= -->
     <div id="wrapper" class="clearfix">
-
-
-
-        <!-- Header
-		============================================= -->
         <header id="header" class="transparent-header dark" data-sticky-class="not-dark"
-            data-responsive-class="not-dark" data-menu-padding="28"
-            style="background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(75px);">
+            data-responsive-class="not-dark" data-menu-padding="28" style="
+          background-color: rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(75px);
+        ">
             <div id="header-wrap">
                 <div class="container">
                     <div class="header-row">
-
-                        <!-- Logo
-						============================================= -->
                         <div id="logo">
-                            <a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png">
-                                <p style="letter-spacing: 0.5rem; margin-top: 2rem;">surgy</p>
+                            <a href="index.html" class="standard-logo">
+                                <p style="letter-spacing: 0.5rem; margin-top: 2rem">
+                                    surgy
+                                </p>
+                            </a><a href="index.html" class="retina-logo">
+                                <p style="letter-spacing: 0.5rem">surgy</p>
                             </a>
-                            <a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png">
-                                <p style="letter-spacing: 0.5rem;">surgy</p>
-                            </a>
-                        </div><!-- #logo end -->
-
+                        </div>
                         <div id="primary-menu-trigger">
                             <svg class="svg-trigger" viewBox="0 0 100 100">
                                 <path
@@ -79,64 +354,53 @@
                                 </path>
                             </svg>
                         </div>
-
-                        <!-- Primary Navigation
-						============================================= -->
                         <nav class="primary-menu style-4 menu-spacing-margin">
-
                             <ul class="menu-container">
-                                <li class="menu-item current"><a class="menu-link" href="index.html">
+                                <li class="menu-item current">
+                                    <a class="menu-link" href="index.html">
                                         <div><i class="icon-home2"></i>Home</div>
-                                    </a></li>
-                                <li class="menu-item"><a class="menu-link" href="corporate.html">
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="corporate.html">
                                         <div><i class="icon-building"></i>Corporate</div>
-                                    </a></li>
-                                <li class="menu-item"><a class="menu-link" href="control.html">
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="control.html">
                                         <div><i class="icon-laptop"></i>Clinic Panel</div>
-                                    </a></li>
+                                    </a>
+                                </li>
                             </ul>
-
-                        </nav><!-- #primary-menu end -->
-
+                        </nav>
                     </div>
                 </div>
             </div>
             <div class="header-wrap-clone"></div>
-        </header><!-- #header end -->
-
-        <!-- Page Title
-		============================================= -->
+        </header>
         <section id="page-title"
-            class="page-title-center page-title-parallax page-title-dark include-header include-topbar"
-            style="background-image: url('demos/travel/images/hotels/page-title.jpg'); background-position: center center; padding: 100px 0;"
-            data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -200px;">
-
+            class="page-title-center page-title-parallax page-title-dark include-header include-topbar" style="
+          background-image: url(https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1168&q=80);
+          background-position: center center;
+          padding: 100px 0;
+        " data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -200px;">
             <div class="container clearfix">
                 <h1>22 Clinics Found</h1>
-                <span><i class="icon-map-marker"> </i> Istanbul, Turkey</span>
+                <span><i class="icon-map-marker"></i>Istanbul, Turkey</span>
             </div>
-
-        </section><!-- #page-title end -->
-
-        <!-- Content
-		============================================= -->
+        </section>
         <section id="content">
             <div class="content-wrap">
                 <div class="container clearfix">
-
                     <div class="row gutter-40 col-mb-80">
-                        <!-- Post Content
-						============================================= -->
                         <div class="postcontent col-lg-12 order-lg-last">
-                            <!-- Posts
-							============================================= -->
                             <div id="posts" class="row gutter-40 mb-0">
-
                                 <div class="entry col-12">
                                     <div class="grid-inner row">
                                         <div class="col-lg-4">
-                                            <a href="demos/travel/images/hotels/1.jpg" data-lightbox="image"><img
-                                                    src="demos/travel/images/hotels/1.jpg" alt="Bronze Time Hotel"></a>
+                                            <a href="img/browse/clinic1.jpg" data-lightbox="image"><img
+                                                    class="clinic-image" src="img/browse/clinic1.jpg"
+                                                    alt="Clinic" /></a>
                                         </div>
                                         <div class="col-lg col-md-8 mt-4 mt-lg-0">
                                             <div class="entry-title title-sm">
@@ -145,79 +409,83 @@
                                             <div class="entry-meta">
                                                 <ul>
                                                     <li>
-                                                        <i class="icon-dollar"></i>
-                                                        <i class="icon-dollar"></i>
-                                                        <i class="icon-dollar"></i>
+                                                        <i class="icon-dollar"></i><i class="icon-dollar"></i><i
+                                                            class="icon-dollar"></i>
                                                     </li>
                                                     <li>
-                                                        <i class="icon-line-map"></i>
-                                                        <a href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom"
-                                                            data-lightbox="iframe"> Bayramampaşa
-                                                        </a>
+                                                        <i class="icon-line-map"></i><a
+                                                            href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom"
+                                                            data-lightbox="iframe">Bayramampaşa</a>
                                                     </li>
-                                                    <li><i class="icon-star3"></i><a href="#"> 24</a></li>
+                                                    <li>
+                                                        <i class="icon-star3"></i><a href="#">24</a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                             <div class="entry-content">
-                                                <div class="clearfix" style="margin-bottom: 10px;">
+                                                <div class="clearfix" style="margin-bottom: 10px">
                                                     <i class="i-rounded i-small i-bordered icon-wifi-full"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="WiFi"></i>
-                                                    <i class="i-rounded i-small i-bordered icon-glass"
+                                                        title="WiFi"></i><i
+                                                        class="i-rounded i-small i-bordered icon-glass"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Bar"></i>
-                                                    <i class="i-rounded i-small i-bordered icon-line-shuffle"
+                                                        title="Bar"></i><i
+                                                        class="i-rounded i-small i-bordered icon-line-shuffle"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Air Conditioner"></i>
-                                                    <i class="i-rounded i-small i-bordered icon-food"
+                                                        title="Air Conditioner"></i><i
+                                                        class="i-rounded i-small i-bordered icon-food"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Restaurant"></i>
-                                                    <i class="i-rounded i-small i-bordered border-0 i-light icon-barbell"
+                                                        title="Restaurant"></i><i
+                                                        class="i-rounded i-small i-bordered border-0 i-light icon-barbell"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Gym Unavailable"></i>
-                                                    <i class="i-rounded i-small i-bordered icon-bell"
+                                                        title="Gym Unavailable"></i><i
+                                                        class="i-rounded i-small i-bordered icon-bell"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Room Service"></i>
-                                                    <i class="i-rounded i-small i-bordered border-0 i-light icon-coffee2"
+                                                        title="Room Service"></i><i
+                                                        class="i-rounded i-small i-bordered border-0 i-light icon-coffee2"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
                                                         title="Cafe Unavailable"></i>
                                                 </div>
-                                                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                    elit. Soluta sequi nemo asperiores. Debitis inventore veritatis quas
-                                                    omnis error.</p>
+                                                <p class="mb-0">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing
+                                                    elit. Soluta sequi nemo asperiores. Debitis
+                                                    inventore veritatis quas omnis error.
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="col-lg-auto col-md-4 mt-4 mt-lg-0 text-start text-md-center">
                                             <li>
-                                                <i class="icon-star3 color"></i>
-                                                <i class="icon-star3 color"></i>
-                                                <i class="icon-star3 color"></i>
-                                                <i class="icon-star3 color"></i>
-                                                <i class="icon-star-half-full color"></i>
+                                                <i class="icon-star3 color"></i><i class="icon-star3 color"></i><i
+                                                    class="icon-star3 color"></i><i class="icon-star3 color"></i><i
+                                                    class="icon-star-half-full color"></i>
                                             </li>
-                                            <a href="#" class="button button-rounded mt-4 mx-0">Book Now</a>
+                                            <a href="clinic.html" class="button button-rounded mt-4 mx-0">Details</a>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="entry col-12">
                                     <div class="grid-inner row">
                                         <div class="col-lg-4">
                                             <div class="fslider" data-pagi="false" data-lightbox="gallery">
                                                 <div class="flexslider">
                                                     <div class="slider-wrap">
-                                                        <div class="slide"><a href="demos/travel/images/hotels/2.jpg"
+                                                        <div class="slide">
+                                                            <a href="https://via.placeholder.com/800x600.png?text=Placeholder+Placeholder+Placeholder" data-lightbox="gallery-item"><img
+                                                                    src="https://via.placeholder.com/800x600.png?text=Placeholder+Placeholder+Placeholder"
+                                                                    alt="Standard Post with Gallery" /></a>
+                                                        </div>
+                                                        <div class="slide">
+                                                            <a href="https://via.placeholder.com/800x600.png?text=Placeholder+Placeholder+Placeholder"
                                                                 data-lightbox="gallery-item"><img
-                                                                    src="demos/travel/images/hotels/2.jpg"
-                                                                    alt="Standard Post with Gallery"></a></div>
-                                                        <div class="slide"><a href="demos/travel/images/hotels/2-1.jpg"
+                                                                    src="https://via.placeholder.com/800x600.png?text=Placeholder+Placeholder+Placeholder"
+                                                                    alt="Standard Post with Gallery" /></a>
+                                                        </div>
+                                                        <div class="slide">
+                                                            <a href="https://via.placeholder.com/800x600.png?text=Placeholder+Placeholder+Placeholder"
                                                                 data-lightbox="gallery-item"><img
-                                                                    src="demos/travel/images/hotels/2-1.jpg"
-                                                                    alt="Standard Post with Gallery"></a></div>
-                                                        <div class="slide"><a href="demos/travel/images/hotels/2-2.jpg"
-                                                                data-lightbox="gallery-item"><img
-                                                                    src="demos/travel/images/hotels/2-2.jpg"
-                                                                    alt="Standard Post with Gallery"></a></div>
+                                                                    src="https://via.placeholder.com/800x600.png?text=Placeholder+Placeholder+Placeholder"
+                                                                    alt="Standard Post with Gallery" /></a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -229,447 +497,268 @@
                                             <div class="entry-meta">
                                                 <ul>
                                                     <li>
-                                                        <i class="icon-dollar"></i>
-                                                        <i class="icon-dollar"></i>
-                                                        <i class="icon-dollar"></i>
+                                                        <i class="icon-dollar"></i><i class="icon-dollar"></i><i
+                                                            class="icon-dollar"></i>
                                                     </li>
                                                     <li>
-                                                        <i class="icon-line-map"></i>
-                                                        <a href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom"
-                                                            data-lightbox="iframe"> Bayramampaşa
-                                                        </a>
+                                                        <i class="icon-line-map"></i><a
+                                                            href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom"
+                                                            data-lightbox="iframe">Bayramampaşa</a>
                                                     </li>
-                                                    <li><i class="icon-star3"></i><a href="#"> 24</a></li>
+                                                    <li>
+                                                        <i class="icon-star3"></i><a href="#">24</a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                             <div class="entry-content">
-                                                <div class="clearfix" style="margin-bottom: 10px;">
+                                                <div class="clearfix" style="margin-bottom: 10px">
                                                     <i class="i-rounded i-small i-bordered icon-wifi-full"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="WiFi"></i>
-                                                    <i class="i-rounded i-small i-bordered icon-glass"
+                                                        title="WiFi"></i><i
+                                                        class="i-rounded i-small i-bordered icon-glass"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Bar"></i>
-                                                    <i class="i-rounded i-small i-bordered icon-line-shuffle"
+                                                        title="Bar"></i><i
+                                                        class="i-rounded i-small i-bordered icon-line-shuffle"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Air Conditioner"></i>
-                                                    <i class="i-rounded i-small i-bordered icon-food"
+                                                        title="Air Conditioner"></i><i
+                                                        class="i-rounded i-small i-bordered icon-food"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Restaurant"></i>
-                                                    <i class="i-rounded i-small i-bordered border-0 i-light icon-barbell"
+                                                        title="Restaurant"></i><i
+                                                        class="i-rounded i-small i-bordered border-0 i-light icon-barbell"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Gym Unavailable"></i>
-                                                    <i class="i-rounded i-small i-bordered icon-bell"
+                                                        title="Gym Unavailable"></i><i
+                                                        class="i-rounded i-small i-bordered icon-bell"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Room Service"></i>
-                                                    <i class="i-rounded i-small i-bordered border-0 i-light icon-coffee2"
+                                                        title="Room Service"></i><i
+                                                        class="i-rounded i-small i-bordered border-0 i-light icon-coffee2"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
                                                         title="Cafe Unavailable"></i>
                                                 </div>
-                                                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                    elit. Soluta sequi nemo asperiores. Debitis inventore veritatis quas
-                                                    omnis error.</p>
+                                                <p class="mb-0">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing
+                                                    elit. Soluta sequi nemo asperiores. Debitis
+                                                    inventore veritatis quas omnis error.
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="col-lg-auto col-md-4 mt-4 mt-lg-0 text-start text-md-center">
                                             <li>
-                                                <i class="icon-star3 color"></i>
-                                                <i class="icon-star3 color"></i>
-                                                <i class="icon-star3 color"></i>
-                                                <i class="icon-star3 color"></i>
-                                                <i class="icon-star-half-full color"></i>
+                                                <i class="icon-star3 color"></i><i class="icon-star3 color"></i><i
+                                                    class="icon-star3 color"></i><i class="icon-star3 color"></i><i
+                                                    class="icon-star-half-full color"></i>
                                             </li>
-                                            <a href="#" class="button button-rounded mt-4 mx-0">Book Now</a>
+                                            <a href="clinic.html" class="button button-rounded mt-4 mx-0">Details</a>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="entry col-12">
                                     <div class="grid-inner row">
                                         <div class="col-lg-4">
-                                            <a href="demos/travel/images/hotels/1.jpg" data-lightbox="image"><img
-                                                    src="demos/travel/images/hotels/1.jpg" alt="Bronze Time Hotel"></a>
+                                            <a href="https://via.placeholder.com/800x600.png?text=Placeholder+Placeholder+Placeholder" data-lightbox="image"><img src="https://via.placeholder.com/800x600.png?text=Placeholder+Placeholder+Placeholder"
+                                                    alt="Clinic" /></a>
                                         </div>
                                         <div class="col-lg col-md-8 mt-4 mt-lg-0">
                                             <div class="entry-title title-sm">
-                                                <h2><a href="blog-single.html">Ata Diş Kliniği</a></h2>
+                                                <h2>
+                                                    <a href="blog-single.html">Ata Diş Kliniği</a>
+                                                </h2>
                                             </div>
                                             <div class="entry-meta">
                                                 <ul>
                                                     <li>
-                                                        <i class="icon-dollar"></i>
-                                                        <i class="icon-dollar"></i>
-                                                        <i class="icon-dollar"></i>
+                                                        <i class="icon-dollar"></i><i class="icon-dollar"></i><i
+                                                            class="icon-dollar"></i>
                                                     </li>
                                                     <li>
-                                                        <i class="icon-line-map"></i>
-                                                        <a href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom"
-                                                            data-lightbox="iframe"> Bayramampaşa
-                                                        </a>
+                                                        <i class="icon-line-map"></i><a
+                                                            href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom"
+                                                            data-lightbox="iframe">Bayramampaşa</a>
                                                     </li>
-                                                    <li><i class="icon-star3"></i><a href="#"> 24</a></li>
+                                                    <li>
+                                                        <i class="icon-star3"></i><a href="#">24</a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                             <div class="entry-content">
-                                                <div class="clearfix" style="margin-bottom: 10px;">
+                                                <div class="clearfix" style="margin-bottom: 10px">
                                                     <i class="i-rounded i-small i-bordered icon-wifi-full"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="WiFi"></i>
-                                                    <i class="i-rounded i-small i-bordered icon-glass"
+                                                        title="WiFi"></i><i
+                                                        class="i-rounded i-small i-bordered icon-glass"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Bar"></i>
-                                                    <i class="i-rounded i-small i-bordered icon-line-shuffle"
+                                                        title="Bar"></i><i
+                                                        class="i-rounded i-small i-bordered icon-line-shuffle"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Air Conditioner"></i>
-                                                    <i class="i-rounded i-small i-bordered icon-food"
+                                                        title="Air Conditioner"></i><i
+                                                        class="i-rounded i-small i-bordered icon-food"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Restaurant"></i>
-                                                    <i class="i-rounded i-small i-bordered border-0 i-light icon-barbell"
+                                                        title="Restaurant"></i><i
+                                                        class="i-rounded i-small i-bordered border-0 i-light icon-barbell"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Gym Unavailable"></i>
-                                                    <i class="i-rounded i-small i-bordered icon-bell"
+                                                        title="Gym Unavailable"></i><i
+                                                        class="i-rounded i-small i-bordered icon-bell"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Room Service"></i>
-                                                    <i class="i-rounded i-small i-bordered border-0 i-light icon-coffee2"
+                                                        title="Room Service"></i><i
+                                                        class="i-rounded i-small i-bordered border-0 i-light icon-coffee2"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
                                                         title="Cafe Unavailable"></i>
                                                 </div>
-                                                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                    elit. Soluta sequi nemo asperiores. Debitis inventore veritatis quas
-                                                    omnis error.</p>
+                                                <p class="mb-0">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing
+                                                    elit. Soluta sequi nemo asperiores. Debitis
+                                                    inventore veritatis quas omnis error.
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="col-lg-auto col-md-4 mt-4 mt-lg-0 text-start text-md-center">
                                             <li>
-                                                <i class="icon-star3 color"></i>
-                                                <i class="icon-star3 color"></i>
-                                                <i class="icon-star3 color"></i>
-                                                <i class="icon-star3 color"></i>
-                                                <i class="icon-star-half-full color"></i>
+                                                <i class="icon-star3 color"></i><i class="icon-star3 color"></i><i
+                                                    class="icon-star3 color"></i><i class="icon-star3 color"></i><i
+                                                    class="icon-star-half-full color"></i>
                                             </li>
-                                            <a href="#" class="button button-rounded mt-4 mx-0">Book Now</a>
+                                            <a href="clinic.html" class="button button-rounded mt-4 mx-0">Details</a>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="entry col-12">
                                     <div class="grid-inner row">
                                         <div class="col-lg-4">
-                                            <a href="demos/travel/images/hotels/1.jpg" data-lightbox="image"><img
-                                                    src="demos/travel/images/hotels/1.jpg" alt="Bronze Time Hotel"></a>
+                                            <a href="https://via.placeholder.com/800x600.png?text=Placeholder+Placeholder+Placeholder" data-lightbox="image"><img src="https://via.placeholder.com/800x600.png?text=Placeholder+Placeholder+Placeholder"
+                                                    alt="Clinic" /></a>
                                         </div>
                                         <div class="col-lg col-md-8 mt-4 mt-lg-0">
                                             <div class="entry-title title-sm">
-                                                <h2><a href="blog-single.html">Ata Diş Kliniği</a></h2>
+                                                <h2>
+                                                    <a href="blog-single.html">Ata Diş Kliniği</a>
+                                                </h2>
                                             </div>
                                             <div class="entry-meta">
                                                 <ul>
                                                     <li>
-                                                        <i class="icon-dollar"></i>
-                                                        <i class="icon-dollar"></i>
-                                                        <i class="icon-dollar"></i>
+                                                        <i class="icon-dollar"></i><i class="icon-dollar"></i><i
+                                                            class="icon-dollar"></i>
                                                     </li>
                                                     <li>
-                                                        <i class="icon-line-map"></i>
-                                                        <a href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom"
-                                                            data-lightbox="iframe"> Bayramampaşa
-                                                        </a>
+                                                        <i class="icon-line-map"></i><a
+                                                            href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&hl=en&t=v&hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom"
+                                                            data-lightbox="iframe">Bayramampaşa</a>
                                                     </li>
-                                                    <li><i class="icon-star3"></i><a href="#"> 24</a></li>
+                                                    <li>
+                                                        <i class="icon-star3"></i><a href="#">24</a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                             <div class="entry-content">
-                                                <div class="clearfix" style="margin-bottom: 10px;">
+                                                <div class="clearfix" style="margin-bottom: 10px">
                                                     <i class="i-rounded i-small i-bordered icon-wifi-full"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="WiFi"></i>
-                                                    <i class="i-rounded i-small i-bordered icon-glass"
+                                                        title="WiFi"></i><i
+                                                        class="i-rounded i-small i-bordered icon-glass"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Bar"></i>
-                                                    <i class="i-rounded i-small i-bordered icon-line-shuffle"
+                                                        title="Bar"></i><i
+                                                        class="i-rounded i-small i-bordered icon-line-shuffle"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Air Conditioner"></i>
-                                                    <i class="i-rounded i-small i-bordered icon-food"
+                                                        title="Air Conditioner"></i><i
+                                                        class="i-rounded i-small i-bordered icon-food"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Restaurant"></i>
-                                                    <i class="i-rounded i-small i-bordered border-0 i-light icon-barbell"
+                                                        title="Restaurant"></i><i
+                                                        class="i-rounded i-small i-bordered border-0 i-light icon-barbell"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Gym Unavailable"></i>
-                                                    <i class="i-rounded i-small i-bordered icon-bell"
+                                                        title="Gym Unavailable"></i><i
+                                                        class="i-rounded i-small i-bordered icon-bell"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Room Service"></i>
-                                                    <i class="i-rounded i-small i-bordered border-0 i-light icon-coffee2"
+                                                        title="Room Service"></i><i
+                                                        class="i-rounded i-small i-bordered border-0 i-light icon-coffee2"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
                                                         title="Cafe Unavailable"></i>
                                                 </div>
-                                                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                    elit. Soluta sequi nemo asperiores. Debitis inventore veritatis quas
-                                                    omnis error.</p>
+                                                <p class="mb-0">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing
+                                                    elit. Soluta sequi nemo asperiores. Debitis
+                                                    inventore veritatis quas omnis error.
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="col-lg-auto col-md-4 mt-4 mt-lg-0 text-start text-md-center">
                                             <li>
-                                                <i class="icon-star3 color"></i>
-                                                <i class="icon-star3 color"></i>
-                                                <i class="icon-star3 color"></i>
-                                                <i class="icon-star3 color"></i>
-                                                <i class="icon-star-half-full color"></i>
+                                                <i class="icon-star3 color"></i><i class="icon-star3 color"></i><i
+                                                    class="icon-star3 color"></i><i class="icon-star3 color"></i><i
+                                                    class="icon-star-half-full color"></i>
                                             </li>
-                                            <a href="#" class="button button-rounded mt-4 mx-0">Book Now</a>
+                                            <a href="clinic.html" class="button button-rounded mt-4 mx-0">Details</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                             <ul class="pagination my-0">
-                                <li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#">&laquo;</a>
+                                </li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">1</a>
+                                </li>
                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                                 <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">&raquo;</a>
+                                </li>
                             </ul>
-
                         </div>
-
-                        <!-- Sidebar
-						============================================= -->
-
                     </div>
-
                 </div>
             </div>
-        </section><!-- #content end -->
-
-        <!-- Footer
-		============================================= -->
-        <footer id="footer" class="dark" style="background-color: #222;">
-            <div class="container">
-
-                <!-- Footer Widgets
-				============================================= -->
-                <div class="footer-widgets-wrap" hidden>
-
-                    <div class="row col-mb-50">
-
-                        <div class="col-md-6">
-
-                            <div class="widget clearfix">
-                                <h4>Featured Packages</h4>
-
-                                <div class="posts-sm row col-mb-30" id="travel-package-list-footer">
-                                    <div class="entry col-12">
-                                        <div class="grid-inner row align-items-center g-0">
-                                            <div class="col-auto">
-                                                <div class="entry-image">
-                                                    <a href="#"><img class="rounded-circle"
-                                                            src="images/magazine/small/1.jpg" alt="Image"></a>
-                                                </div>
-                                            </div>
-                                            <div class="col ps-3">
-                                                <div class="entry-title">
-                                                    <h4><a href="#">package1</a></h4>
-                                                </div>
-                                                <div class="entry-meta">
-                                                    <ul>
-                                                        <li><strong>$599</strong> onwards</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="entry col-12">
-                                        <div class="grid-inner row align-items-center g-0">
-                                            <div class="col-auto">
-                                                <div class="entry-image">
-                                                    <a href="#"><img class="rounded-circle"
-                                                            src="images/magazine/small/2.jpg" alt="Image"></a>
-                                                </div>
-                                            </div>
-                                            <div class="col ps-3">
-                                                <div class="entry-title">
-                                                    <h4><a href="#">package2</a></h4>
-                                                </div>
-                                                <div class="entry-meta">
-                                                    <ul>
-                                                        <li><strong>$399</strong> onwards</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="entry col-12">
-                                        <div class="grid-inner row align-items-center g-0">
-                                            <div class="col-auto">
-                                                <div class="entry-image">
-                                                    <a href="#"><img class="rounded-circle"
-                                                            src="images/magazine/small/3.jpg" alt="Image"></a>
-                                                </div>
-                                            </div>
-                                            <div class="col ps-3">
-                                                <div class="entry-title">
-                                                    <h4><a href="#">package3</a></h4>
-                                                </div>
-                                                <div class="entry-meta">
-                                                    <ul>
-                                                        <li><strong>$1299</strong> onwards</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-6">
-
-                            <div class="widget widget_links clearfix">
-
-                                <h4>Popular Destinations</h4>
-
-                                <div class="row col-mb-30">
-                                    <div class="col-6">
-                                        <ul>
-                                            <li><a href="#">Thailand</a></li>
-                                            <li><a href="#">Indonesia</a></li>
-                                            <li><a href="#">Italy</a></li>
-                                            <li><a href="#">Spain</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-6">
-                                        <ul>
-                                            <li><a href="#">India</a></li>
-                                            <li><a href="#">France</a></li>
-                                            <li><a href="#">Philippines</a></li>
-                                            <li><a href="#">New Zealand</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="widget subscribe-widget clearfix">
-                                <h5><strong>Get Noticed</strong> when a new <strong>Clinic is added</strong>:</h5>
-                                <div class="widget-subscribe-form-result"></div>
-                                <form id="widget-subscribe-form" action="include/subscribe.php" method="post"
-                                    class="mb-0">
-                                    <div class="input-group mx-auto">
-                                        <div class="input-group-text"><i class="icon-email2"></i></div>
-                                        <input type="email" id="widget-subscribe-form-email"
-                                            name="widget-subscribe-form-email" class="form-control required email"
-                                            placeholder="Enter your Email">
-                                        <button class="btn btn-danger bg-color" type="submit">Subscribe</button>
-                                    </div>
-                                </form>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div><!-- .footer-widgets-wrap end -->
-
-            </div>
-
-            <!-- Copyrights
-			============================================= -->
+        </section>
+        <footer id="footer" class="dark" style="background-color: #222">
             <div id="copyrights">
                 <div class="container">
-
                     <div class="row col-mb-30">
-
                         <div class="col-md-6 text-center text-md-start">
-                            Copyrights &copy; 2022 Surgy<br>
-                            <div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a>
+                            Copyrights &copy; 2022 Surgy<br />
+                            <div class="copyright-links">
+                                <a href="#">Terms of Use</a>/<a href="#">Privacy Policy</a>
                             </div>
                         </div>
-
                         <div class="col-md-6 text-center text-md-end" hidden>
-                            <!-- TODO _ CLARIF-1 -->
                             <div class="d-flex justify-content-center justify-content-md-end">
-                                <a href="#" class="social-icon si-small si-borderless si-facebook">
-                                    <i class="icon-facebook"></i>
-                                    <i class="icon-facebook"></i>
-                                </a>
-
-                                <a href="#" class="social-icon si-small si-borderless si-twitter">
-                                    <i class="icon-twitter"></i>
-                                    <i class="icon-twitter"></i>
-                                </a>
-
-                                <a href="#" class="social-icon si-small si-borderless si-gplus">
-                                    <i class="icon-gplus"></i>
-                                    <i class="icon-gplus"></i>
-                                </a>
-
-                                <a href="#" class="social-icon si-small si-borderless si-pinterest">
-                                    <i class="icon-pinterest"></i>
-                                    <i class="icon-pinterest"></i>
-                                </a>
-
-                                <a href="#" class="social-icon si-small si-borderless si-vimeo">
-                                    <i class="icon-vimeo"></i>
-                                    <i class="icon-vimeo"></i>
-                                </a>
-
-                                <a href="#" class="social-icon si-small si-borderless si-github">
-                                    <i class="icon-github"></i>
-                                    <i class="icon-github"></i>
-                                </a>
-
-                                <a href="#" class="social-icon si-small si-borderless si-yahoo">
-                                    <i class="icon-yahoo"></i>
-                                    <i class="icon-yahoo"></i>
-                                </a>
-
-                                <a href="#" class="social-icon si-small si-borderless si-linkedin">
-                                    <i class="icon-linkedin"></i>
-                                    <i class="icon-linkedin"></i>
-                                </a>
+                                <a href="#" class="social-icon si-small si-borderless si-facebook"><i
+                                        class="icon-facebook"></i><i class="icon-facebook"></i></a><a href="#"
+                                    class="social-icon si-small si-borderless si-twitter"><i class="icon-twitter"></i><i
+                                        class="icon-twitter"></i></a><a href="#"
+                                    class="social-icon si-small si-borderless si-gplus"><i class="icon-gplus"></i><i
+                                        class="icon-gplus"></i></a><a href="#"
+                                    class="social-icon si-small si-borderless si-pinterest"><i
+                                        class="icon-pinterest"></i><i class="icon-pinterest"></i></a><a href="#"
+                                    class="social-icon si-small si-borderless si-vimeo"><i class="icon-vimeo"></i><i
+                                        class="icon-vimeo"></i></a><a href="#"
+                                    class="social-icon si-small si-borderless si-github"><i class="icon-github"></i><i
+                                        class="icon-github"></i></a><a href="#"
+                                    class="social-icon si-small si-borderless si-yahoo"><i class="icon-yahoo"></i><i
+                                        class="icon-yahoo"></i></a><a href="#"
+                                    class="social-icon si-small si-borderless si-linkedin"><i
+                                        class="icon-linkedin"></i><i class="icon-linkedin"></i></a>
                             </div>
-
                             <div class="clear"></div>
                         </div>
-
                     </div>
-
                 </div>
-            </div><!-- #copyrights end -->
-        </footer><!-- #footer end -->
-
-    </div><!-- #wrapper end -->
-
-    <!-- Go To Top
-	============================================= -->
+            </div>
+        </footer>
+    </div>
     <div id="gotoTop" class="icon-angle-up"></div>
-
-    <!-- JavaScripts
-	============================================= -->
     <script src="js/jquery.js"></script>
     <script src="js/plugins.min.js"></script>
-
-    <!-- Travel Demo Specific Script -->
     <script src="js/components/datepicker.js"></script>
-
-    <!-- Star Rating Plugin -->
     <script src="js/components/star-rating.js"></script>
-
-    <!-- Footer Scripts
-	============================================= -->
     <script src="js/functions.js"></script>
-
     <script>
         $(function () {
-            $('.travel-date-group').datepicker({
-                autoclose: true,
-                startDate: "today"
+            $(".browse-date-group").datepicker({
+                autoclose: !0,
+                startDate: "today",
             });
         });
     </script>
-
 </body>
 
 </html>

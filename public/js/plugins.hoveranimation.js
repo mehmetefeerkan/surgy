@@ -1,6 +1,6 @@
 window.scwHoverAnimationPlugin = window.scwHoverAnimationPlugin || {};
 
-window.SEMICOLON_hoverAnimationInit = function( $hoverAnimationEl ){
+window.SURGYJS_hoverAnimationInit = function( $hoverAnimationEl ){
 
 	$hoverAnimationEl = $hoverAnimationEl.filter(':not(.customjs)');
 

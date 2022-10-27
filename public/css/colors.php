@@ -2,21 +2,11 @@
 
 header ("Content-Type:text/css");
 
-/** ===============================================================
- *
- *      Edit your Color Configurations below:
- *      You should only enter 6-Digits HEX Colors.
- *
- ================================================================== */
+
 
 $color = "#1ABC9C"; // Change your Color Here
 
-/** ===============================================================
- *
- *      Do not Edit anything below this line if you do not know
- *      what you are trying to do..!
- *
- ================================================================== */
+
 
 function checkhexcolor($color) {
 
@@ -24,11 +14,6 @@ function checkhexcolor($color) {
 
 }
 
-/** ===============================================================
- *
- *      Primary Color Scheme
- *
- ================================================================== */
 
 if( isset( $_GET[ 'color' ] ) AND $_GET[ 'color' ] != '' ) {
 	$color = "#" . $_GET[ 'color' ];

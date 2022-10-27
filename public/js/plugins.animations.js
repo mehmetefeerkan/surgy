@@ -1,6 +1,6 @@
 window.scwAnimationsPlugin = window.scwAnimationsPlugin || {};
 
-window.SEMICOLON_animationsInit = function( $animationEl ){
+window.SURGYJS_animationsInit = function( $animationEl ){
 
 	$animationEl = $animationEl.filter(':not(.customjs)');
 

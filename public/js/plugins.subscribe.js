@@ -1,6 +1,6 @@
 window.scwSubscribeFormPlugin = window.scwSubscribeFormPlugin || {};
 
-window.SEMICOLON_subscribeFormInit = function( $subscribeForm ){
+window.SURGYJS_subscribeFormInit = function( $subscribeForm ){
 
 	$subscribeForm = $subscribeForm.filter(':not(.customjs)');
 
@@ -54,7 +54,7 @@ window.SEMICOLON_subscribeFormInit = function( $subscribeForm ){
 							elResult.addClass( 'alert ' + alertType ).html( data.message ).slideDown( 400 );
 						} else {
 							elResult.attr( 'data-notify-type', data.alert ).attr( 'data-notify-msg', data.message ).html('');
-							SEMICOLON.widget.notifications({ el: elResult });
+							SURGYJS.widget.notifications({ el: elResult });
 						}
 					}
 				});

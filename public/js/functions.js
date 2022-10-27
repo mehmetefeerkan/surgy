@@ -1,4 +1,4 @@
-/*! jRespond.js v 0.10 | Author: Jeremy Fields [jeremy.fields@viget.com], 2013 | License: MIT */
+
 !function(a,b,c){"object"==typeof module&&module&&"object"==typeof module.exports?module.exports=c:(a[b]=c,"function"==typeof define&&define.amd&&define(b,[],function(){return c}))}(this,"jRespond",function(a,b,c){"use strict";return function(a){var b=[],d=[],e=a,f="",g="",i=0,j=100,k=500,l=k,m=function(){var a=0;return a="number"!=typeof window.innerWidth?0!==document.documentElement.clientWidth?document.documentElement.clientWidth:document.body.clientWidth:window.innerWidth},n=function(a){if(a.length===c)o(a);else for(var b=0;b<a.length;b++)o(a[b])},o=function(a){var e=a.breakpoint,h=a.enter||c;b.push(a),d.push(!1),r(e)&&(h!==c&&h.call(null,{entering:f,exiting:g}),d[b.length-1]=!0)},p=function(){for(var a=[],e=[],h=0;h<b.length;h++){var i=b[h].breakpoint,j=b[h].enter||c,k=b[h].exit||c;"*"===i?(j!==c&&a.push(j),k!==c&&e.push(k)):r(i)?(j===c||d[h]||a.push(j),d[h]=!0):(k!==c&&d[h]&&e.push(k),d[h]=!1)}for(var l={entering:f,exiting:g},m=0;m<e.length;m++)e[m].call(null,l);for(var n=0;n<a.length;n++)a[n].call(null,l)},q=function(a){for(var b=!1,c=0;c<e.length;c++)if(a>=e[c].enter&&a<=e[c].exit){b=!0;break}b&&f!==e[c].label?(g=f,f=e[c].label,p()):b||""===f||(f="",p())},r=function(a){if("object"==typeof a){if(a.join().indexOf(f)>=0)return!0}else{if("*"===a)return!0;if("string"==typeof a&&f===a)return!0}},s=function(){var a=m();a!==i?(l=j,q(a)):l=k,i=a,setTimeout(s,l)};return s(),{addFunc:function(a){n(a)},getBreakpoint:function(){return f}}}}(this,this.document));
 
 var $ = jQuery.noConflict();
@@ -67,12 +67,12 @@ function debounce(func, wait, immediate) {
 
 
 function onScrollSliderParallax() {
-	SEMICOLON.slider.sliderParallax();
-	SEMICOLON.slider.sliderElementsFade();
+	SURGYJS.slider.sliderParallax();
+	SURGYJS.slider.sliderElementsFade();
 }
 
 
-var SEMICOLON = SEMICOLON || {};
+var SURGYJS = SURGYJS || {};
 window.scwEvents = window.scwEvents || {};
 
 (function($){
@@ -80,19 +80,19 @@ window.scwEvents = window.scwEvents || {};
 	// USE STRICT
 	"use strict";
 
-	SEMICOLON.initialize = {
+	SURGYJS.initialize = {
 
 		init: function(){
 
-			SEMICOLON.initialize.defaults();
-			SEMICOLON.initialize.pageTransition();
-			SEMICOLON.initialize.goToTop();
-			SEMICOLON.initialize.lazyLoad();
-			SEMICOLON.initialize.lightbox();
-			SEMICOLON.initialize.resizeVideos();
-			SEMICOLON.initialize.dataResponsiveClasses();
-			SEMICOLON.initialize.dataResponsiveHeights();
-			SEMICOLON.initialize.stickFooterOnSmall();
+			SURGYJS.initialize.defaults();
+			SURGYJS.initialize.pageTransition();
+			SURGYJS.initialize.goToTop();
+			SURGYJS.initialize.lazyLoad();
+			SURGYJS.initialize.lightbox();
+			SURGYJS.initialize.resizeVideos();
+			SURGYJS.initialize.dataResponsiveClasses();
+			SURGYJS.initialize.dataResponsiveHeights();
+			SURGYJS.initialize.stickFooterOnSmall();
 
 		},
 
@@ -124,7 +124,7 @@ window.scwEvents = window.scwEvents || {};
 				}
 
 				if( settings.execfn ) {
-					SEMICOLON.initialize.execFunc( settings.execfn, window, element );
+					SURGYJS.initialize.execFunc( settings.execfn, window, element );
 				}
 
 				if( settings.class ) {
@@ -149,10 +149,10 @@ window.scwEvents = window.scwEvents || {};
 				if( settings.execfn ) {
 					if( settings.trigger && !pluginActive ) {
 						$window.on( settings.trigger, function(){
-							SEMICOLON.initialize.execFunc( settings.execfn, window, element );
+							SURGYJS.initialize.execFunc( settings.execfn, window, element );
 						});
 					} else {
-						SEMICOLON.initialize.execFunc( settings.execfn, window, element );
+						SURGYJS.initialize.execFunc( settings.execfn, window, element );
 					}
 				}
 
@@ -190,7 +190,7 @@ window.scwEvents = window.scwEvents || {};
 			}
 
 			if( pluginFnExec ) {
-				SEMICOLON.initialize.execPlugin( element, settings, true );
+				SURGYJS.initialize.execPlugin( element, settings, true );
 			} else {
 				if( !disableAJAX ) {
 					$.ajax({
@@ -200,7 +200,7 @@ window.scwEvents = window.scwEvents || {};
 						crossDomain: true,
 						timeout: 5000,
 					}).done(function() {
-						SEMICOLON.initialize.execPlugin( element, settings, false );
+						SURGYJS.initialize.execPlugin( element, settings, false );
 					}).fail(function() {
 						console.log( settings.error );
 					});
@@ -304,8 +304,8 @@ window.scwEvents = window.scwEvents || {};
 				}
 			]);
 
-			SEMICOLON.initialize.functions( easingJs );
-			SEMICOLON.initialize.functions( bootstrapJs );
+			SURGYJS.initialize.functions( easingJs );
+			SURGYJS.initialize.functions( bootstrapJs );
 		},
 
 		goToTop: function(){
@@ -346,13 +346,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '[data-lightbox]',
 				file: 'plugins.lightbox.js',
 				error: 'plugins.lightbox.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_lightboxInit',
+				execfn: 'SURGYJS_lightboxInit',
 				pluginfn: () => $().magnificPopup,
 				trigger: 'pluginLightboxReady',
 				class: 'has-plugin-lightbox'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		modal: function( element ){
@@ -361,13 +361,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.modal-on-load',
 				file: 'plugins.lightbox.js',
 				error: 'plugins.lightbox.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_modalInit',
+				execfn: 'SURGYJS_modalInit',
 				pluginfn: () => $().magnificPopup,
 				trigger: 'pluginLightboxReady',
 				class: 'has-plugin-lightbox'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		resizeVideos: function(){
@@ -375,13 +375,13 @@ window.scwEvents = window.scwEvents || {};
 				default: 'iframe[src*="youtube"],iframe[src*="vimeo"],iframe[src*="dailymotion"],iframe[src*="maps.google.com"],iframe[src*="google.com/maps"]',
 				file: 'plugins.fitvids.js',
 				error: 'plugins.fitvids.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_resizeVideosInit',
+				execfn: 'SURGYJS_resizeVideosInit',
 				pluginfn: () => $().fitVids,
 				trigger: 'pluginfitVidsReady',
 				class: 'has-plugin-fitvids'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		pageTransition: function(){
@@ -389,13 +389,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.page-transition',
 				file: 'plugins.pagetransition.js',
 				error: 'plugins.pagetransition.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_pageTransitionInit',
+				execfn: 'SURGYJS_pageTransitionInit',
 				pluginfn: () => $().animsition,
 				trigger: 'pluginPageTransitionReady',
 				class: 'has-plugin-animsition'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		lazyLoad: function( element ) {
@@ -404,19 +404,19 @@ window.scwEvents = window.scwEvents || {};
 				default: '.lazy',
 				file: 'plugins.lazyload.js',
 				error: 'plugins.lazyload.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_lazyLoadInit',
+				execfn: 'SURGYJS_lazyLoadInit',
 				pluginfn: () => typeof LazyLoad !== "undefined",
 				trigger: 'pluginlazyLoadReady',
 				class: 'has-plugin-lazyload'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		topScrollOffset: function() {
 			let topOffsetScroll = 0;
 
-			if( ( $body.hasClass('device-xl') || $body.hasClass('device-lg') ) && !SEMICOLON.isMobile.any() ) {
+			if( ( $body.hasClass('device-xl') || $body.hasClass('device-lg') ) && !SURGYJS.isMobile.any() ) {
 				if( $header.hasClass('sticky-header') ) {
 					if( $pagemenu.hasClass('dots-menu') ) { topOffsetScroll = 100; } else { topOffsetScroll = 144; }
 				} else {
@@ -438,13 +438,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '[data-class-xl],[data-class-lg],[data-class-md],[data-class-sm],[data-class-xs]',
 				file: 'plugins.dataclasses.js',
 				error: 'plugins.dataclasses.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_dataClassesInit',
+				execfn: 'SURGYJS_dataClassesInit',
 				pluginfn: () => typeof scwDataClassesPlugin !== "undefined",
 				trigger: 'pluginDataClassesReady',
 				class: 'has-plugin-dataclasses'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		dataResponsiveHeights: function(){
@@ -452,13 +452,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '[data-height-xl],[data-height-lg],[data-height-md],[data-height-sm],[data-height-xs]',
 				file: 'plugins.dataheights.js',
 				error: 'plugins.dataheights.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_dataHeightsInit',
+				execfn: 'SURGYJS_dataHeightsInit',
 				pluginfn: () => typeof scwDataHeightsPlugin !== "undefined",
 				trigger: 'pluginDataHeightsReady',
 				class: 'has-plugin-dataheights'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		stickFooterOnSmall: function(){
@@ -475,22 +475,22 @@ window.scwEvents = window.scwEvents || {};
 
 	};
 
-	SEMICOLON.header = {
+	SURGYJS.header = {
 
 		init: function(){
 
-			SEMICOLON.header.initialize();
-			SEMICOLON.header.menufunctions();
-			SEMICOLON.header.fullWidthMenu();
-			SEMICOLON.header.stickyMenu();
-			SEMICOLON.header.stickyPageMenu();
-			SEMICOLON.header.sideHeader();
-			SEMICOLON.header.sidePanel();
-			SEMICOLON.header.onePageScroll();
-			SEMICOLON.header.logo();
-			SEMICOLON.header.topsearch();
-			SEMICOLON.header.topcart();
-			SEMICOLON.header.miscFunctions();
+			SURGYJS.header.initialize();
+			SURGYJS.header.menufunctions();
+			SURGYJS.header.fullWidthMenu();
+			SURGYJS.header.stickyMenu();
+			SURGYJS.header.stickyPageMenu();
+			SURGYJS.header.sideHeader();
+			SURGYJS.header.sidePanel();
+			SURGYJS.header.onePageScroll();
+			SURGYJS.header.logo();
+			SURGYJS.header.topsearch();
+			SURGYJS.header.topcart();
+			SURGYJS.header.miscFunctions();
 
 		},
 
@@ -516,7 +516,7 @@ window.scwEvents = window.scwEvents || {};
 			$( '.top-links-item:has(.top-links-sub-menu,.top-links-section) > a:not(:has(.icon-angle-down)), .menu-item:not(.mega-menu-title):has(.sub-menu-container) > .menu-link > div:not(:has(.icon-angle-down)), .page-menu-item:has(.page-menu-sub-menu) > a > div:not(:has(.icon-angle-down))' ).append( '<i class="icon-angle-down"></i>' );
 			$( '.menu-item:not(.mega-menu-title):has(.sub-menu-container):not(:has(.sub-menu-trigger))' ).append( '<button class="sub-menu-trigger icon-chevron-right"></button>' );
 
-			SEMICOLON.header.menuInvert();
+			SURGYJS.header.menuInvert();
 
 		},
 
@@ -552,7 +552,7 @@ window.scwEvents = window.scwEvents || {};
 				headerInc = headerInc + $header.offset().top;
 			}
 			$headerInc.css({ 'margin-top': -headerInc });
-			SEMICOLON.slider.sliderParallax();
+			SURGYJS.slider.sliderParallax();
 		},
 
 		menufunctions: function(){
@@ -576,7 +576,7 @@ window.scwEvents = window.scwEvents || {};
 					if( $headerWrapClone.length > 0 ) {
 						$headerWrapClone.css({ 'height': initHeaderHeight });
 					}
-					SEMICOLON.header.includeOffset();
+					SURGYJS.header.includeOffset();
 				}, 1000);
 				primaryMenu.find( submenus ).css({ 'display': '' });
 			} else {
@@ -642,7 +642,7 @@ window.scwEvents = window.scwEvents || {};
 				});
 			}
 
-			SEMICOLON.header.menuInvert( $('.top-links-section') );
+			SURGYJS.header.menuInvert( $('.top-links-section') );
 
 			$('#primary-menu-trigger').off( 'click' ).on( 'click', function() {
 				if( $body.hasClass('device-md') || $body.hasClass('device-sm') || $body.hasClass('device-xs') ) {
@@ -714,30 +714,30 @@ window.scwEvents = window.scwEvents || {};
 					if( !$body.hasClass('side-header') ) {
 						$header.filter(':not(.no-sticky)').addClass('sticky-header');
 						// if( !$headerWrap.hasClass('force-not-dark') ) { $headerWrap.removeClass('not-dark'); }
-						SEMICOLON.header.stickyMenuClass();
+						SURGYJS.header.stickyMenuClass();
 
 						if( stickyShrink == 'true' && !$header.hasClass('no-sticky') ) {
 							if( ( windowScrT - headerOffset ) > Number( stickyShrinkOffset ) ) {
 								$header.addClass('sticky-header-shrink');
 								if( headerSizeCustom ){
 									logo.find('img').css({ 'height': Number( stickyLogoH ) });
-									SEMICOLON.header.menuItemsSpacing( stickyMenuP );
+									SURGYJS.header.menuItemsSpacing( stickyMenuP );
 								}
 							} else {
 								$header.removeClass('sticky-header-shrink');
 								if( headerSizeCustom ){
 									logo.find('img').css({ 'height': Number( defLogoH ) });
-									SEMICOLON.header.menuItemsSpacing( defMenuP );
+									SURGYJS.header.menuItemsSpacing( defMenuP );
 								}
 							}
 						}
 					}
 
 				} else {
-					SEMICOLON.header.removeStickyness();
+					SURGYJS.header.removeStickyness();
 					if( headerSizeCustom ){
 						logo.find('img').css({ 'height': Number( defLogoH ) });
-						SEMICOLON.header.menuItemsSpacing( defMenuP );
+						SURGYJS.header.menuItemsSpacing( defMenuP );
 					}
 				}
 			}
@@ -746,17 +746,17 @@ window.scwEvents = window.scwEvents || {};
 				if( mobileSticky == 'true' ) {
 					if( windowScrT > headerOffset ) {
 						$header.filter(':not(.no-sticky)').addClass('sticky-header');
-						SEMICOLON.header.stickyMenuClass();
+						SURGYJS.header.stickyMenuClass();
 					} else {
-						SEMICOLON.header.removeStickyness();
-						SEMICOLON.header.responsiveMenuClass();
+						SURGYJS.header.removeStickyness();
+						SURGYJS.header.responsiveMenuClass();
 					}
 				} else {
-					SEMICOLON.header.removeStickyness();
+					SURGYJS.header.removeStickyness();
 				}
 				if( headerSizeCustom ){
 					logo.find('img').css({ 'height': Number( mobileLogoH ) });
-					SEMICOLON.header.menuItemsSpacing( '' );
+					SURGYJS.header.menuItemsSpacing( '' );
 				}
 			}
 		},
@@ -808,8 +808,8 @@ window.scwEvents = window.scwEvents || {};
 				$header.removeClass().addClass(oldHeaderClasses);
 				$headerWrap.removeClass().addClass(oldHeaderWrapClasses);
 				if( !$headerWrap.hasClass('force-not-dark') ) { $headerWrap.removeClass('not-dark'); }
-				SEMICOLON.slider.swiperSliderMenu();
-				SEMICOLON.slider.revolutionSliderMenu();
+				SURGYJS.slider.swiperSliderMenu();
+				SURGYJS.slider.revolutionSliderMenu();
 			}
 			if( ( $body.hasClass('device-sm') || $body.hasClass('device-xs') || $body.hasClass('device-md') ) && ( typeof responsiveMenuClasses === 'undefined' ) ) {
 				$header.removeClass().addClass(oldHeaderClasses);
@@ -841,13 +841,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.one-page-menu',
 				file: 'plugins.onepage.js',
 				error: 'plugins.onepage.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_onePageModule',
+				execfn: 'SURGYJS_onePageModule',
 				pluginfn: () => typeof scwOnePageModulePlugin !== "undefined",
 				trigger: 'pluginOnePageModuleReady',
 				class: 'has-plugin-onepagemodule'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		logo: function(){
@@ -949,7 +949,7 @@ window.scwEvents = window.scwEvents || {};
 				}
 			}
 
-			SEMICOLON.header.logo();
+			SURGYJS.header.logo();
 		},
 
 		topsearch: function(){
@@ -1026,14 +1026,14 @@ window.scwEvents = window.scwEvents || {};
 
 	};
 
-	SEMICOLON.slider = {
+	SURGYJS.slider = {
 
 		init: function() {
 
-			SEMICOLON.slider.sliderDimensions();
-			SEMICOLON.slider.sliderRun();
-			SEMICOLON.slider.sliderParallax();
-			SEMICOLON.slider.sliderElementsFade();
+			SURGYJS.slider.sliderDimensions();
+			SURGYJS.slider.sliderRun();
+			SURGYJS.slider.sliderParallax();
+			SURGYJS.slider.sliderElementsFade();
 
 		},
 
@@ -1087,13 +1087,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.swiper_wrapper',
 				file: 'plugins.swiper.js',
 				error: 'plugins.swiper.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_swiperInit',
+				execfn: 'SURGYJS_swiperInit',
 				pluginfn: () => typeof Swiper !== "undefined",
 				trigger: 'pluginSwiperReady',
 				class: 'has-plugin-swiper'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		sliderParallaxOffset: function(){
@@ -1122,14 +1122,14 @@ window.scwEvents = window.scwEvents || {};
 				return true;
 			}
 
-			let parallaxOffsetTop = SEMICOLON.slider.sliderParallaxOffset(),
+			let parallaxOffsetTop = SURGYJS.slider.sliderParallaxOffset(),
 				parallaxElHeight = $sliderParallaxEl.outerHeight(),
 				transform, transform2;
 
 			xScrollPosition = window.pageXOffset;
 			yScrollPosition = window.pageYOffset;
 
-			if( ( $body.hasClass('device-xl') || $body.hasClass('device-lg') ) && !SEMICOLON.isMobile.any() ) {
+			if( ( $body.hasClass('device-xl') || $body.hasClass('device-lg') ) && !SURGYJS.isMobile.any() ) {
 				if( ( parallaxElHeight + parallaxOffsetTop + 50 ) > yScrollPosition ){
 					$sliderParallaxEl.addClass('slider-parallax-visible').removeClass('slider-parallax-invisible');
 					if ( yScrollPosition > parallaxOffsetTop ) {
@@ -1138,22 +1138,22 @@ window.scwEvents = window.scwEvents || {};
 							transform = ((yScrollPosition-parallaxOffsetTop) * -.4 );
 							transform2 = ((yScrollPosition-parallaxOffsetTop) * -.15 );
 
-							SEMICOLON.slider.sliderParallaxSet( 0, transform, sliderParallaxElInner );
-							SEMICOLON.slider.sliderParallaxSet( 0, transform2, sliderParallaxElCaption );
+							SURGYJS.slider.sliderParallaxSet( 0, transform, sliderParallaxElInner );
+							SURGYJS.slider.sliderParallaxSet( 0, transform2, sliderParallaxElCaption );
 						} else {
 							transform = ((yScrollPosition-parallaxOffsetTop) / 1.5 );
 							transform2 = ((yScrollPosition-parallaxOffsetTop) / 7 );
 
-							SEMICOLON.slider.sliderParallaxSet( 0, transform, sliderParallaxEl );
-							SEMICOLON.slider.sliderParallaxSet( 0, transform2, sliderParallaxElCaption );
+							SURGYJS.slider.sliderParallaxSet( 0, transform, sliderParallaxEl );
+							SURGYJS.slider.sliderParallaxSet( 0, transform2, sliderParallaxElCaption );
 						}
 					} else {
 						if( $sliderParallaxEl.find('.slider-inner').length > 0 ) {
-							SEMICOLON.slider.sliderParallaxSet( 0, 0, sliderParallaxElInner );
-							SEMICOLON.slider.sliderParallaxSet( 0, 0, sliderParallaxElCaption );
+							SURGYJS.slider.sliderParallaxSet( 0, 0, sliderParallaxElInner );
+							SURGYJS.slider.sliderParallaxSet( 0, 0, sliderParallaxElCaption );
 						} else {
-							SEMICOLON.slider.sliderParallaxSet( 0, 0, sliderParallaxEl );
-							SEMICOLON.slider.sliderParallaxSet( 0, 0, sliderParallaxElCaption );
+							SURGYJS.slider.sliderParallaxSet( 0, 0, sliderParallaxEl );
+							SURGYJS.slider.sliderParallaxSet( 0, 0, sliderParallaxElCaption );
 						}
 					}
 				} else {
@@ -1161,16 +1161,16 @@ window.scwEvents = window.scwEvents || {};
 				}
 
 				requestAnimationFrame(function(){
-					SEMICOLON.slider.sliderParallax();
-					SEMICOLON.slider.sliderElementsFade();
+					SURGYJS.slider.sliderParallax();
+					SURGYJS.slider.sliderElementsFade();
 				});
 			} else {
 				if( $sliderParallaxEl.find('.slider-inner').length > 0 ) {
-					SEMICOLON.slider.sliderParallaxSet( 0, 0, sliderParallaxElInner );
-					SEMICOLON.slider.sliderParallaxSet( 0, 0, sliderParallaxElCaption );
+					SURGYJS.slider.sliderParallaxSet( 0, 0, sliderParallaxElInner );
+					SURGYJS.slider.sliderParallaxSet( 0, 0, sliderParallaxElCaption );
 				} else {
-					SEMICOLON.slider.sliderParallaxSet( 0, 0, sliderParallaxEl );
-					SEMICOLON.slider.sliderParallaxSet( 0, 0, sliderParallaxElCaption );
+					SURGYJS.slider.sliderParallaxSet( 0, 0, sliderParallaxEl );
+					SURGYJS.slider.sliderParallaxSet( 0, 0, sliderParallaxElCaption );
 				}
 				$sliderParallaxEl.addClass('slider-parallax-visible').removeClass('slider-parallax-invisible');
 			}
@@ -1181,8 +1181,8 @@ window.scwEvents = window.scwEvents || {};
 				return true;
 			}
 
-			if( ( $body.hasClass('device-xl') || $body.hasClass('device-lg') ) && !SEMICOLON.isMobile.any() ) {
-				let parallaxOffsetTop = SEMICOLON.slider.sliderParallaxOffset(),
+			if( ( $body.hasClass('device-xl') || $body.hasClass('device-lg') ) && !SURGYJS.isMobile.any() ) {
+				let parallaxOffsetTop = SURGYJS.slider.sliderParallaxOffset(),
 					parallaxElHeight = $sliderParallaxEl.outerHeight(),
 					tHeaderOffset;
 
@@ -1201,7 +1201,7 @@ window.scwEvents = window.scwEvents || {};
 			onWinLoad = typeof onWinLoad !== 'undefined' ? onWinLoad : false;
 			if( $body.hasClass('device-xl') || $body.hasClass('device-lg') || ( $header.hasClass('transparent-header-responsive') && !$body.hasClass('primary-menu-open') ) ) {
 				let activeSlide = $slider.find('.swiper-slide.swiper-slide-active');
-				SEMICOLON.slider.headerSchemeChanger(activeSlide, onWinLoad);
+				SURGYJS.slider.headerSchemeChanger(activeSlide, onWinLoad);
 			}
 		},
 
@@ -1209,7 +1209,7 @@ window.scwEvents = window.scwEvents || {};
 			onWinLoad = typeof onWinLoad !== 'undefined' ? onWinLoad : false;
 			if( $body.hasClass('device-xl') || $body.hasClass('device-lg') || ( $header.hasClass('transparent-header-responsive') && !$body.hasClass('primary-menu-open') ) ) {
 				let activeSlide = $slider.find('.active-revslide');
-				SEMICOLON.slider.headerSchemeChanger(activeSlide, onWinLoad);
+				SURGYJS.slider.headerSchemeChanger(activeSlide, onWinLoad);
 			}
 		},
 
@@ -1251,20 +1251,20 @@ window.scwEvents = window.scwEvents || {};
 					}
 				}
 				if( $header.hasClass('sticky-header') ) {
-					SEMICOLON.header.stickyMenuClass();
+					SURGYJS.header.stickyMenuClass();
 				}
-				SEMICOLON.header.logo();
+				SURGYJS.header.logo();
 			}
 		}
 
 	};
 
-	SEMICOLON.portfolio = {
+	SURGYJS.portfolio = {
 
 		init: function(){
 
-			SEMICOLON.portfolio.revealDesc();
-			SEMICOLON.portfolio.ajaxload();
+			SURGYJS.portfolio.revealDesc();
+			SURGYJS.portfolio.ajaxload();
 
 		},
 
@@ -1291,49 +1291,49 @@ window.scwEvents = window.scwEvents || {};
 				default: '.portfolio-ajax',
 				file: 'plugins.ajaxportfolio.js',
 				error: 'plugins.ajaxportfolio.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_portfolioAjaxloadInit',
+				execfn: 'SURGYJS_portfolioAjaxloadInit',
 				pluginfn: () => typeof scwAjaxPortfolioPlugin !== "undefined",
 				trigger: 'pluginAjaxPortfolioReady',
 				class: 'has-plugin-ajaxportfolio'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		}
 
 	};
 
-	SEMICOLON.widget = {
+	SURGYJS.widget = {
 
 		init: function(){
 
-			SEMICOLON.widget.animations();
-			SEMICOLON.widget.hoverAnimation();
-			SEMICOLON.widget.youtubeBgVideo();
-			SEMICOLON.widget.tabs();
-			SEMICOLON.widget.toggles();
-			SEMICOLON.widget.accordions();
-			SEMICOLON.widget.counter();
-			SEMICOLON.widget.countdown();
-			SEMICOLON.widget.gmap();
-			SEMICOLON.widget.roundedSkill();
-			SEMICOLON.widget.progress();
-			SEMICOLON.widget.twitterFeed();
-			SEMICOLON.widget.flickrFeed();
-			SEMICOLON.widget.instagramPhotos();
-			SEMICOLON.widget.dribbbleShots();
-			SEMICOLON.widget.navTree();
-			SEMICOLON.widget.textRotator();
-			SEMICOLON.widget.carousel();
-			SEMICOLON.widget.linkScroll();
-			SEMICOLON.widget.ajaxForm();
-			SEMICOLON.widget.subscription();
-			SEMICOLON.widget.shapeDivider();
-			SEMICOLON.widget.stickySidebar();
-			SEMICOLON.widget.cookieNotify();
-			SEMICOLON.widget.cartQuantity();
-			SEMICOLON.widget.readmore();
-			SEMICOLON.widget.pricingSwitcher();
-			SEMICOLON.widget.extras();
+			SURGYJS.widget.animations();
+			SURGYJS.widget.hoverAnimation();
+			SURGYJS.widget.youtubeBgVideo();
+			SURGYJS.widget.tabs();
+			SURGYJS.widget.toggles();
+			SURGYJS.widget.accordions();
+			SURGYJS.widget.counter();
+			SURGYJS.widget.countdown();
+			SURGYJS.widget.gmap();
+			SURGYJS.widget.roundedSkill();
+			SURGYJS.widget.progress();
+			SURGYJS.widget.twitterFeed();
+			SURGYJS.widget.flickrFeed();
+			SURGYJS.widget.instagramPhotos();
+			SURGYJS.widget.dribbbleShots();
+			SURGYJS.widget.navTree();
+			SURGYJS.widget.textRotator();
+			SURGYJS.widget.carousel();
+			SURGYJS.widget.linkScroll();
+			SURGYJS.widget.ajaxForm();
+			SURGYJS.widget.subscription();
+			SURGYJS.widget.shapeDivider();
+			SURGYJS.widget.stickySidebar();
+			SURGYJS.widget.cookieNotify();
+			SURGYJS.widget.cartQuantity();
+			SURGYJS.widget.readmore();
+			SURGYJS.widget.pricingSwitcher();
+			SURGYJS.widget.extras();
 
 		},
 
@@ -1343,13 +1343,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.parallax,.page-title-parallax,.portfolio-parallax .portfolio-image',
 				file: 'plugins.parallax.js',
 				error: 'plugins.parallax.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_parallaxInit',
+				execfn: 'SURGYJS_parallaxInit',
 				pluginfn: () => typeof skrollr !== "undefined",
 				trigger: 'pluginParallaxReady',
 				class: 'has-plugin-parallax'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		animations: function( element ){
@@ -1358,13 +1358,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '[data-animate]',
 				file: 'plugins.animations.js',
 				error: 'plugins.animations.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_animationsInit',
+				execfn: 'SURGYJS_animationsInit',
 				pluginfn: () => typeof scwAnimationsPlugin !== "undefined",
 				trigger: 'pluginAnimationsReady',
 				class: 'has-plugin-animations'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		hoverAnimation: function( element ){
@@ -1373,13 +1373,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '[data-hover-animate]',
 				file: 'plugins.hoveranimation.js',
 				error: 'plugins.hoveranimation.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_hoverAnimationInit',
+				execfn: 'SURGYJS_hoverAnimationInit',
 				pluginfn: () => typeof scwHoverAnimationPlugin !== "undefined",
 				trigger: 'pluginHoverAnimationReady',
 				class: 'has-plugin-hoveranimation'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 		// TODO _ TRUNCATED-1 
 		// TODO _ TRUNCATETHIS 
@@ -1390,13 +1390,13 @@ window.scwEvents = window.scwEvents || {};
 		// 		default: '.grid-container',
 		// 		file: 'plugins.isotope.js',
 		// 		error: 'plugins.isotope.js: Plugin could not be loaded',
-		// 		execfn: 'SEMICOLON_gridContainerInit',
+		// 		execfn: 'SURGYJS_gridContainerInit',
 		// 		pluginfn: () => $().isotope,
 		// 		trigger: 'pluginIsotopeReady',
 		// 		class: 'has-plugin-isotope'
 		// 	};
 
-		// 	SEMICOLON.initialize.functions( settings );
+		// 	SURGYJS.initialize.functions( settings );
 		},
 
 		filterInit: function( element ){
@@ -1405,13 +1405,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.grid-filter,.custom-filter',
 				file: 'plugins.gridfilter.js',
 				error: 'plugins.gridfilter.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_gridFilterInit',
+				execfn: 'SURGYJS_gridFilterInit',
 				pluginfn: () => $().isotope && typeof scwGridFilterPlugin !== "undefined",
 				trigger: 'pluginGridFilterReady',
 				class: 'has-plugin-isotope-filter'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		loadFlexSlider: function( element ){
@@ -1420,13 +1420,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.fslider',
 				file: 'plugins.flexslider.js',
 				error: 'plugins.flexslider.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_flexSliderInit',
+				execfn: 'SURGYJS_flexSliderInit',
 				pluginfn: () => $().flexslider,
 				trigger: 'pluginFlexSliderReady',
 				class: 'has-plugin-flexslider'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		html5Video: function( element ){
@@ -1435,13 +1435,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.video-wrap:has(video)',
 				file: 'plugins.html5video.js',
 				error: 'plugins.html5video.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_html5VideoInit',
+				execfn: 'SURGYJS_html5VideoInit',
 				pluginfn: () => typeof scwHtml5VideoPlugin !== "undefined",
 				trigger: 'pluginHtml5VideoReady',
 				class: 'has-plugin-html5video'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		youtubeBgVideo: function( element ){
@@ -1450,13 +1450,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.yt-bg-player',
 				file: 'plugins.youtube.js',
 				error: 'plugins.youtube.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_youtubeBgVideoInit',
+				execfn: 'SURGYJS_youtubeBgVideoInit',
 				pluginfn: () => $().YTPlayer,
 				trigger: 'pluginYoutubeBgVideoReady',
 				class: 'has-plugin-youtubebg'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		tabs: function( element ){
@@ -1465,13 +1465,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.tabs,[data-plugin="tabs"]',
 				file: 'plugins.tabs.js',
 				error: 'plugins.tabs.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_tabsInit',
+				execfn: 'SURGYJS_tabsInit',
 				pluginfn: () => $().tabs,
 				trigger: 'pluginTabsReady',
 				class: 'has-plugin-tabs'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		toggles: function( element ){
@@ -1480,13 +1480,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.toggle',
 				file: 'plugins.toggles.js',
 				error: 'plugins.toggles.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_togglesInit',
+				execfn: 'SURGYJS_togglesInit',
 				pluginfn: () => typeof scwTogglesPlugin !== "undefined",
 				trigger: 'pluginTogglesReady',
 				class: 'has-plugin-toggles'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		accordions: function( element ){
@@ -1495,13 +1495,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.accordion',
 				file: 'plugins.accordions.js',
 				error: 'plugins.accordions.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_accordionsInit',
+				execfn: 'SURGYJS_accordionsInit',
 				pluginfn: () => typeof scwAccordionsPlugin !== "undefined",
 				trigger: 'pluginAccordionsReady',
 				class: 'has-plugin-accordions'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		counter: function( element ){
@@ -1510,13 +1510,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.counter',
 				file: 'plugins.counter.js',
 				error: 'plugins.counter.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_counterInit',
+				execfn: 'SURGYJS_counterInit',
 				pluginfn: () => $().countTo,
 				trigger: 'pluginCounterReady',
 				class: 'has-plugin-counter'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		countdown: function( element ){
@@ -1536,14 +1536,14 @@ window.scwEvents = window.scwEvents || {};
 				default: '.countdown',
 				file: 'plugins.countdown.js',
 				error: 'plugins.countdown.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_countdownInit',
+				execfn: 'SURGYJS_countdownInit',
 				pluginfn: () => $().countdown,
 				trigger: 'pluginCountdownReady',
 				class: 'has-plugin-countdown'
 			};
 
-			SEMICOLON.initialize.functions( momentSettings );
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( momentSettings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		gmap: function( element ){
@@ -1563,15 +1563,15 @@ window.scwEvents = window.scwEvents || {};
 				default: '.gmap',
 				file: 'plugins.gmap.js',
 				error: 'plugins.gmap.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_gmapInit',
+				execfn: 'SURGYJS_gmapInit',
 				pluginfn: () => typeof google !== "undefined" && $().gMap,
 				hiddendisable: true,
 				trigger: 'pluginGmapReady',
 				class: 'has-plugin-gmap'
 			};
 
-			SEMICOLON.initialize.functions( googleSettings );
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( googleSettings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		roundedSkill: function( element ){
@@ -1580,13 +1580,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.rounded-skill',
 				file: 'plugins.piechart.js',
 				error: 'plugins.piechart.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_roundedSkillInit',
+				execfn: 'SURGYJS_roundedSkillInit',
 				pluginfn: () => $().easyPieChart,
 				trigger: 'pluginRoundedSkillReady',
 				class: 'has-plugin-piechart'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		progress: function( element ){
@@ -1595,13 +1595,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.progress',
 				file: 'plugins.progress.js',
 				error: 'plugins.progress.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_progressInit',
+				execfn: 'SURGYJS_progressInit',
 				pluginfn: () => typeof scwProgressPlugin !== "undefined",
 				trigger: 'pluginProgressReady',
 				class: 'has-plugin-progress'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		twitterFeed: function( element ){
@@ -1610,13 +1610,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.twitter-feed',
 				file: 'plugins.twitter.js',
 				error: 'plugins.twitter.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_twitterFeedInit',
+				execfn: 'SURGYJS_twitterFeedInit',
 				pluginfn: () => typeof sm_format_twitter !== "undefined" && typeof sm_format_twitter3 !== "undefined",
 				trigger: 'pluginTwitterFeedReady',
 				class: 'has-plugin-twitter'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		flickrFeed: function( element ){
@@ -1625,13 +1625,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.flickr-feed',
 				file: 'plugins.flickrfeed.js',
 				error: 'plugins.flickrfeed.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_flickrFeedInit',
+				execfn: 'SURGYJS_flickrFeedInit',
 				pluginfn: () => $().jflickrfeed,
 				trigger: 'pluginFlickrFeedReady',
 				class: 'has-plugin-flickr'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		instagramPhotos: function( element ){
@@ -1640,13 +1640,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.instagram-photos',
 				file: 'plugins.instagram.js',
 				error: 'plugins.instagram.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_instagramPhotosInit',
+				execfn: 'SURGYJS_instagramPhotosInit',
 				pluginfn: () => typeof scwInstagramPlugin !== "undefined",
 				trigger: 'pluginInstagramReady',
 				class: 'has-plugin-instagram'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		dribbbleShots: function( element ){
@@ -1655,7 +1655,7 @@ window.scwEvents = window.scwEvents || {};
 				default: '.dribbble-shots',
 				file: 'plugins.dribbble.js',
 				error: 'plugins.dribbble.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_dribbbleShotsInit',
+				execfn: 'SURGYJS_dribbbleShotsInit',
 				pluginfn: () => $.jribbble,
 				trigger: 'pluginDribbbleReady',
 				class: 'has-plugin-dribbble'
@@ -1671,8 +1671,8 @@ window.scwEvents = window.scwEvents || {};
 				class: 'has-plugin-imagesloaded'
 			};
 
-			SEMICOLON.initialize.functions( settings );
-			SEMICOLON.initialize.functions( imagesLoadedSettings );
+			SURGYJS.initialize.functions( settings );
+			SURGYJS.initialize.functions( imagesLoadedSettings );
 		},
 
 		navTree: function( element ){
@@ -1681,13 +1681,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.nav-tree',
 				file: 'plugins.navtree.js',
 				error: 'plugins.navtree.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_navtreeInit',
+				execfn: 'SURGYJS_navtreeInit',
 				pluginfn: () => typeof scwNavTreePlugin !== "undefined",
 				trigger: 'pluginNavTreeReady',
 				class: 'has-plugin-navtree'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		carousel: function( element ){
@@ -1696,13 +1696,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.carousel-widget',
 				file: 'plugins.carousel.js',
 				error: 'plugins.carousel.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_carouselInit',
+				execfn: 'SURGYJS_carouselInit',
 				pluginfn: () => $().owlCarousel,
 				trigger: 'pluginCarouselReady',
 				class: 'has-plugin-carousel'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		masonryThumbs: function( element ){
@@ -1711,13 +1711,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.masonry-thumbs',
 				file: 'plugins.masonrythumbs.js',
 				error: 'plugins.masonrythumbs.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_masonryThumbsInit',
+				execfn: 'SURGYJS_masonryThumbsInit',
 				pluginfn: () => $().isotope && typeof scwMasonryThumbsPlugin !== "undefined",
 				trigger: 'pluginMasonryThumbsReady',
 				class: 'has-plugin-masonrythumbs'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		notifications: function( element ){
@@ -1726,13 +1726,13 @@ window.scwEvents = window.scwEvents || {};
 				default: false,
 				file: 'plugins.notify.js',
 				error: 'plugins.notify.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_notificationInit',
+				execfn: 'SURGYJS_notificationInit',
 				pluginfn: () => typeof scwNotificationPlugin !== "undefined",
 				trigger: 'pluginNotifyReady',
 				class: 'has-plugin-toast'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		textRotator: function( element ){
@@ -1741,13 +1741,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.text-rotater',
 				file: 'plugins.textrotator.js',
 				error: 'plugins.textrotator.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_textRotatorInit',
+				execfn: 'SURGYJS_textRotatorInit',
 				pluginfn: () => $().Morphext,
 				trigger: 'pluginTextRotatorReady',
 				class: 'has-plugin-textrotator'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		linkScroll: function( element ){
@@ -1756,13 +1756,13 @@ window.scwEvents = window.scwEvents || {};
 				default: 'a[data-scrollto]',
 				file: 'plugins.linkscroll.js',
 				error: 'plugins.linkscroll.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_linkScrollInit',
+				execfn: 'SURGYJS_linkScrollInit',
 				pluginfn: () => typeof scwLinkScrollPlugin !== "undefined",
 				trigger: 'pluginLinkScrollReady',
 				class: 'has-plugin-linkscroll'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		ajaxForm: function( element ){
@@ -1781,14 +1781,14 @@ window.scwEvents = window.scwEvents || {};
 				default: '.form-widget',
 				file: 'plugins.ajaxform.js',
 				error: 'plugins.ajaxform.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_ajaxFormInit',
+				execfn: 'SURGYJS_ajaxFormInit',
 				pluginfn: () => typeof scwAjaxFormPlugin !== "undefined",
 				trigger: 'pluginAjaxFormReady',
 				class: 'has-plugin-ajaxform'
 			};
 
-			SEMICOLON.initialize.functions( formSettings );
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( formSettings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		subscription: function( element ){
@@ -1807,14 +1807,14 @@ window.scwEvents = window.scwEvents || {};
 				default: '.subscribe-widget',
 				file: 'plugins.subscribe.js',
 				error: 'plugins.subscribe.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_subscribeFormInit',
+				execfn: 'SURGYJS_subscribeFormInit',
 				pluginfn: () => typeof scwSubscribeFormPlugin !== "undefined",
 				trigger: 'pluginSubscribeFormReady',
 				class: 'has-plugin-subscribeform'
 			};
 
-			SEMICOLON.initialize.functions( formSettings );
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( formSettings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		shapeDivider: function( element ){
@@ -1823,13 +1823,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.shape-divider',
 				file: 'plugins.shapedivider.js',
 				error: 'plugins.shapedivider.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_shapeDividerInit',
+				execfn: 'SURGYJS_shapeDividerInit',
 				pluginfn: () => typeof scwShapeDividerPlugin !== "undefined",
 				trigger: 'pluginShapeDividerReady',
 				class: 'has-plugin-shapedivider'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		ticker: function( element ){
@@ -1838,13 +1838,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.scw-ticker',
 				file: 'plugins.ticker.js',
 				error: 'plugins.ticker.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_tickerInit',
+				execfn: 'SURGYJS_tickerInit',
 				pluginfn: () => typeof scwTickerPlugin !== "undefined",
 				trigger: 'pluginTickerReady',
 				class: 'has-plugin-ticker'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		stickySidebar: function( element ){
@@ -1853,13 +1853,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.sticky-sidebar-wrap',
 				file: 'plugins.stickysidebar.js',
 				error: 'plugins.stickysidebar.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_stickySidebarInit',
+				execfn: 'SURGYJS_stickySidebarInit',
 				pluginfn: () => $().scwStickySidebar,
 				trigger: 'pluginStickySidebarReady',
 				class: 'has-plugin-stickysidebar'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		cookieNotify: function( element ){
@@ -1868,13 +1868,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.gdpr-settings,[data-cookies]',
 				file: 'plugins.cookie.js',
 				error: 'plugins.cookie.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_cookieInit',
+				execfn: 'SURGYJS_cookieInit',
 				pluginfn: () => typeof Cookies !== "undefined",
 				trigger: 'pluginCookieReady',
 				class: 'has-plugin-cookie'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		cartQuantity: function(){
@@ -1882,13 +1882,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.qty',
 				file: 'plugins.quantity.js',
 				error: 'plugins.quantity.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_quantityInit',
+				execfn: 'SURGYJS_quantityInit',
 				pluginfn: () => typeof scwQuantityPlugin !== "undefined",
 				trigger: 'pluginQuantityReady',
 				class: 'has-plugin-quantity'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		readmore: function(){
@@ -1896,13 +1896,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '[data-readmore]',
 				file: 'plugins.readmore.js',
 				error: 'plugins.readmore.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_readmoreInit',
+				execfn: 'SURGYJS_readmoreInit',
 				pluginfn: () => typeof scwReadMorePlugin !== "undefined",
 				trigger: 'pluginReadMoreReady',
 				class: 'has-plugin-readmore'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		pricingSwitcher: function(){
@@ -1910,13 +1910,13 @@ window.scwEvents = window.scwEvents || {};
 				default: '.pts-switcher',
 				file: 'plugins.pricingswitcher.js',
 				error: 'plugins.pricingswitcher.js: Plugin could not be loaded',
-				execfn: 'SEMICOLON_pricingSwitcherInit',
+				execfn: 'SURGYJS_pricingSwitcherInit',
 				pluginfn: () => typeof scwPricingSwitcherPlugin !== "undefined",
 				trigger: 'pluginPricingSwitcherReady',
 				class: 'has-plugin-pricing-switcher'
 			};
 
-			SEMICOLON.initialize.functions( settings );
+			SURGYJS.initialize.functions( settings );
 		},
 
 		extras: function(){
@@ -1954,7 +1954,7 @@ window.scwEvents = window.scwEvents || {};
 				$topCart.toggleClass('top-cart-open', false);
 			});
 
-			if( SEMICOLON.isMobile.any() ){
+			if( SURGYJS.isMobile.any() ){
 				$body.addClass('device-touch');
 			}
 
@@ -1972,7 +1972,7 @@ window.scwEvents = window.scwEvents || {};
 						$body.toggleClass( 'dark', false );
 						adaptiveEl.removeClass( adaptDarkClass ).addClass( adaptLightClass );
 					}
-					SEMICOLON.header.logo();
+					SURGYJS.header.logo();
 				};
 
 				if( window.matchMedia ) {
@@ -1998,7 +1998,7 @@ window.scwEvents = window.scwEvents || {};
 
 	};
 
-	SEMICOLON.isMobile = {
+	SURGYJS.isMobile = {
 		Android: function() {
 			return navigator.userAgent.match(/Android/i);
 		},
@@ -2015,12 +2015,12 @@ window.scwEvents = window.scwEvents || {};
 			return navigator.userAgent.match(/IEMobile/i);
 		},
 		any: function() {
-			return (SEMICOLON.isMobile.Android() || SEMICOLON.isMobile.BlackBerry() || SEMICOLON.isMobile.iOS() || SEMICOLON.isMobile.Opera() || SEMICOLON.isMobile.Windows());
+			return (SURGYJS.isMobile.Android() || SURGYJS.isMobile.BlackBerry() || SURGYJS.isMobile.iOS() || SURGYJS.isMobile.Opera() || SURGYJS.isMobile.Windows());
 		}
 	};
 
 	// Add your Custom JS Codes here
-	SEMICOLON.customization = {
+	SURGYJS.customization = {
 
 		onReady: function(){
 
@@ -2042,22 +2042,22 @@ window.scwEvents = window.scwEvents || {};
 
 	}
 
-	SEMICOLON.documentOnResize = {
+	SURGYJS.documentOnResize = {
 
 		init: function(){
 
-			SEMICOLON.header.menufunctions();
-			SEMICOLON.header.fullWidthMenu();
-			SEMICOLON.header.stickyMenu();
-			SEMICOLON.header.logo();
-			SEMICOLON.initialize.dataResponsiveHeights();
-			SEMICOLON.initialize.stickFooterOnSmall();
-			SEMICOLON.slider.sliderDimensions();
-			SEMICOLON.slider.sliderParallax();
-			SEMICOLON.widget.html5Video();
-			SEMICOLON.widget.masonryThumbs();
-			SEMICOLON.initialize.dataResponsiveClasses();
-			SEMICOLON.customization.onResize();
+			SURGYJS.header.menufunctions();
+			SURGYJS.header.fullWidthMenu();
+			SURGYJS.header.stickyMenu();
+			SURGYJS.header.logo();
+			SURGYJS.initialize.dataResponsiveHeights();
+			SURGYJS.initialize.stickFooterOnSmall();
+			SURGYJS.slider.sliderDimensions();
+			SURGYJS.slider.sliderParallax();
+			SURGYJS.widget.html5Video();
+			SURGYJS.widget.masonryThumbs();
+			SURGYJS.initialize.dataResponsiveClasses();
+			SURGYJS.customization.onResize();
 
 			windowWidth = $window.width();
 
@@ -2067,16 +2067,16 @@ window.scwEvents = window.scwEvents || {};
 
 	};
 
-	SEMICOLON.documentOnReady = {
+	SURGYJS.documentOnReady = {
 
 		init: function(){
-			SEMICOLON.initialize.init();
-			SEMICOLON.header.init();
-			if( $slider.length > 0 || $sliderElement.length > 0 ) { SEMICOLON.slider.init(); }
-			if( $portfolio.length > 0 ) { SEMICOLON.portfolio.init(); }
-			SEMICOLON.widget.init();
-			SEMICOLON.documentOnReady.windowscroll();
-			SEMICOLON.customization.onReady();
+			SURGYJS.initialize.init();
+			SURGYJS.header.init();
+			if( $slider.length > 0 || $sliderElement.length > 0 ) { SURGYJS.slider.init(); }
+			if( $portfolio.length > 0 ) { SURGYJS.portfolio.init(); }
+			SURGYJS.widget.init();
+			SURGYJS.documentOnReady.windowscroll();
+			SURGYJS.customization.onReady();
 		},
 
 		windowscroll: function(){
@@ -2131,16 +2131,16 @@ window.scwEvents = window.scwEvents || {};
 				}, 1000);
 			}
 
-			SEMICOLON.header.stickyMenu( headerWrapOffset );
-			SEMICOLON.header.stickyPageMenu( pageMenuOffset );
+			SURGYJS.header.stickyMenu( headerWrapOffset );
+			SURGYJS.header.stickyPageMenu( pageMenuOffset );
 
 			window.addEventListener( 'scroll', function(){
 
-				SEMICOLON.initialize.goToTopScroll();
+				SURGYJS.initialize.goToTopScroll();
 				$('body.open-header.close-header-on-scroll').removeClass("side-header-open");
-				SEMICOLON.header.stickyMenu( headerWrapOffset );
-				SEMICOLON.header.stickyPageMenu( pageMenuOffset );
-				SEMICOLON.header.logo();
+				SURGYJS.header.stickyMenu( headerWrapOffset );
+				SURGYJS.header.stickyPageMenu( pageMenuOffset );
+				SURGYJS.header.logo();
 
 			}, { passive: true });
 
@@ -2159,27 +2159,27 @@ window.scwEvents = window.scwEvents || {};
 
 	};
 
-	SEMICOLON.documentOnLoad = {
+	SURGYJS.documentOnLoad = {
 
 		init: function(){
-			SEMICOLON.slider.swiperSliderMenu(true);
-			SEMICOLON.slider.revolutionSliderMenu(true);
-			SEMICOLON.initialize.stickFooterOnSmall();
-			SEMICOLON.widget.gridInit();
+			SURGYJS.slider.swiperSliderMenu(true);
+			SURGYJS.slider.revolutionSliderMenu(true);
+			SURGYJS.initialize.stickFooterOnSmall();
+			SURGYJS.widget.gridInit();
 			let isoCheckInt = setInterval( function(){
 				if( 'pluginIsotopeReady' in scwEvents ) {
-					SEMICOLON.widget.filterInit();
-					SEMICOLON.widget.masonryThumbs();
+					SURGYJS.widget.filterInit();
+					SURGYJS.widget.masonryThumbs();
 					clearInterval( isoCheckInt );
 				}
 			}, 1000 );
-			SEMICOLON.widget.parallax();
-			SEMICOLON.widget.loadFlexSlider();
-			SEMICOLON.widget.html5Video();
-			SEMICOLON.widget.ticker();
-			SEMICOLON.header.responsiveMenuClass();
-			SEMICOLON.initialize.modal();
-			SEMICOLON.customization.onLoad();
+			SURGYJS.widget.parallax();
+			SURGYJS.widget.loadFlexSlider();
+			SURGYJS.widget.html5Video();
+			SURGYJS.widget.ticker();
+			SURGYJS.header.responsiveMenuClass();
+			SURGYJS.initialize.modal();
+			SURGYJS.customization.onLoad();
 
 		}
 
@@ -2254,16 +2254,16 @@ window.scwEvents = window.scwEvents || {};
 		pageMenuOffset = 0,
 		resizeTimer;
 
-	$(document).ready( SEMICOLON.documentOnReady.init );
+	$(document).ready( SURGYJS.documentOnReady.init );
 
-	$window.on( 'load', SEMICOLON.documentOnLoad.init );
+	$window.on( 'load', SURGYJS.documentOnLoad.init );
 
 	$window.on( 'resize', function() {
 		let thisWindow = $(this);
 		clearTimeout(resizeTimer);
 		resizeTimer = setTimeout(function() {
 			if ( thisWindow.width() !== windowWidth ) {
-				SEMICOLON.documentOnResize.init();
+				SURGYJS.documentOnResize.init();
 			}
 		}, 250);
 	});
